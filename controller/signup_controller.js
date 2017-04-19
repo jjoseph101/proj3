@@ -9,7 +9,7 @@ var signupLogin = {
 signUp : function(req, res){
  
  var userProfile = {
-        userName : req.body.userName,
+        userName : req.body.email,
         password : req.body.password,
         screenName : req.body.screenName,
         email: req.body.email,
@@ -35,11 +35,14 @@ var options = {
 
                          res.send('/login');
 
+                     } else {
+                        res.json({ error: response.message });
                      }
 
     })
     .catch(function (err) {
         // POST failed... 
+        res.json({ error: response.message });
     });
 
 },
