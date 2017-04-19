@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starter Template for Bootstrap</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="javascript/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="topBackground">
+        <center>
+            <img src="images/echoingWall.svg" class="logo">
+        </center>
+    </div>
+
+    <div class="bottomBackground">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <center>
+
+                        <form>
+                            <div class="form-group">
+                                <!-- <label for="exampleInputEmail1">Email address</label> -->
+                                <input type="email" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Username / Email Address">
+
+                            </div>
+
+                            <div class="form-group">
+                                <!-- <label for="exampleInputPassword1">Password</label> -->
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+
+                        </form>
+                        <div class="buttonsGrouped">
+                            <button type="submit" class="btn btn-default pull-right" id="loginButton">Submit</button>
+                            <a href "/signup" type="button" class="btn btn-default pull-right" id="signUp">Sign Up</a>
+                        </div>
+
+                        <div id="loginResult">
+
+
+                        </div>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+    </div>
+    </div>
+    </div>
+
+
+
+    <footer>
+        <div class="text-center">
+            <p class="footerText">&copy; Echoing Wall 2017</p>
+        </div>
+    </footer>
+
+    <script>
+        $("#loginButton").on("click", function() {
+            console.log("inside login")
+            var returnedUser = {
+                userName: $("#userName").val().trim(),
+                password: $("#password").val().trim()
+            }
+            $.post("/loggedIn", returnedUser, function(data) {
+                console.log(data);
+                if (data.error) {
+                    console.log("inside error")
+                    $("#loginResult").html(data.error);
+                } else {
+                    console.log("before echoesing")
+                    window.location = data;
+
+                }
+            });
+        })
+    </script>
+
+
+</body>
+
+</html>
