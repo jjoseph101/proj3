@@ -81,7 +81,7 @@
           <font color="#DD0000">Enter Code ></font> <span id="txtCaptchaDiv" style="background-color:#A51D22;color:#FFF;padding:5px"></span>
           <input type="hidden" id="txtCaptcha" />
           <input type="text" name="txtInput" id="txtInput" size="15" />
-          <input type="submit" class = "btn btn-default" value="Submit"/>
+          <input type="submit" class = "btn btn-default pull-right moveToTop" id="signUpButton" value="Submit"/>
           </form>
 
 
@@ -106,11 +106,7 @@
           </div>
 
 
-            <footer>
-              <div class="text-center">
-                <p class="footerText">&copy; Echoing Wall 2017</p>
-              </div>
-            </footer>
+
 
 
             </body>
@@ -176,7 +172,39 @@
     </div>
   </div>
 </div>
+            <footer>
+              <div class="text-center">
+                <p class="footerText">&copy; Echoing Wall 2017</p>
+              </div>
+            </footer>
 
+    <script>
+        $("#signUpButton").on("click", function() {
+            console.log("inside signup")
+            var returnedUser = {
+                userName: $("#exampleInputEmail1").val().trim(),
+                password: $("#exampleInputPassword1").val().trim(),
+                screenName: $("#exampleInputEmail1").val().trim(),
+                email: $("#exampleInputEmail1").val().trim(),
+                phone: $("#exampleInputPhone1").val().trim(),
+                postalCode: $("examplePostalCode1").val.trim(),
+                country: $("exampleCountry1").val.trim(),
+                interests: $("exampleInterests").val.trim()
+
+            }
+            $.post("/signup", returnedUser, function(data) {
+                console.log(data);
+                if (data.error) {
+                    console.log("inside error")
+                    $("#signupResult").html(data.error);
+                } else {
+                    console.log("before echoesing")
+                    window.location = data;
+
+                }
+            });
+        })
+    </script>
 
 
 
