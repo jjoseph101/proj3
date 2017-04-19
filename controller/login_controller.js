@@ -28,7 +28,7 @@ var options = {
         rp(options)
             .then(function (response) {
 
-                    console.log(response);
+                   // console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
 
@@ -73,7 +73,7 @@ var options = {
         rp(options)
             .then(function (response) {
 
-                    console.log(response);
+                   // console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
 
@@ -81,13 +81,13 @@ var options = {
 
                         console.log(200);
                           var currentUser = response.data;
-                        console.log(currentUser);
+                       // console.log(currentUser);
                          req.session.user = currentUser;
                       //  req.session.user.interest = resonse.data[0][1];
 
                          
                          res.locals.user = currentUser;
-   res.send('/echoes');
+                         res.send('/echoes');
                         
                  
                      

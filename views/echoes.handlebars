@@ -1,83 +1,38 @@
   <div class="container-fluid" id="jumboContainer">
-  		<div class="row">
-
+  		{{!--<div class="row">--}}
+{{#each userEchoes}}
   			<div class="col-lg-6 col-md-6 col-sm-6">
   				<div class="jumbotron">
             <div class="textGrouped">
-              <h4>Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              <a href="" class="readMore">Read More</a></p>
-              <div class="date">4/10/17</div>
-            </div>
+              <h4>{{this.topicName}}</h4>
+              <p>{{this.topicDescription}}
+          
+              
+        
 
+              </p>
+              </div>
+
+
+  			
+  		
+               <form action="/startChat" method="POST">
+              <input type ="hidden" name="topicID" value="{{this.topicID}}">
+              <button type="submit" class="btn btn-lg" >JOIN</button>
+             </form>
+
+              <div class="date">{{this.chatUpdatedAt}}</div>
+           
+	</div>
   				</div>
-  			</div>
+  
+        {{!--<form action="/startChat" method="POST">
+              <input type ="hidden" name="topicID" value="{{this.TopicID}}">
+              <button type="submit" class="btn btn-lg" >JOIN</button>
+              </form>--}}
+{{/each}}
 
-        <div class="col-lg-6 col-md-6 col-sm-6">
-  				<div class="jumbotron">
-            <div class="textGrouped">
-              <h4>Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              <a href="" class="readMore">Read More</a></p>
-              <div class="date">4/10/17</div>
-            </div>
-
-  				</div>
-  			</div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6">
-  				<div class="jumbotron">
-            <div class="textGrouped">
-              <h4>Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              <a href="" class="readMore">Read More</a></p>
-              <div class="date">4/10/17</div>
-            </div>
-
-  				</div>
-  			</div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6">
-  				<div class="jumbotron">
-            <div class="textGrouped">
-              <h4>Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              <a href="" class="readMore">Read More</a></p>
-              <div class="date">4/10/17</div>
-            </div>
-
-  				</div>
-  			</div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6">
-  				<div class="jumbotron">
-            <div class="textGrouped">
-              <h4>Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              <a href="" class="readMore">Read More</a></p>
-            <div class="date">4/10/17</div>
-            </div>
-
-  				</div>
-  			</div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6">
-  				<div class="jumbotron">
-            <div class="textGrouped">
-              <h4>Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              <a href="" class="readMore">Read More</a></p>
-            <div class="date">4/10/17</div>
-            </div>
-
-  				</div>
-  			</div>
+  			{{!--</div>--}}
 
   		</div>
   
