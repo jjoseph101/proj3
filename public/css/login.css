@@ -83,8 +83,9 @@ body {
 
 
 .buttonsGrouped {
-  position:absolute;
-  left:295px;
+  position:relative;
+  left:195px;
+
 }
 
 
@@ -97,3 +98,35 @@ footer {
 form {
       margin-top:100px;
 }
+
+/** Media Queries for Login In page START **/
+
+@media screen and (max-width:1199px){
+
+  .buttonsGrouped {
+    position:relative;
+    left:140px;
+  }
+
+}
+
+@media screen and (max-width:991px){
+
+  .buttonsGrouped {
+    position:relative;
+    left:85px;
+  }
+
+}
+
+@media screen and (max-width:767px){
+
+  .buttonsGrouped {
+    position:relative;
+    left:270px;
+  }
+
+}
+
+
+/** Media Queries for Login In page END **/

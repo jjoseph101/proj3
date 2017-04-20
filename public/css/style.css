@@ -5978,9 +5978,10 @@ button:focus,button:active {
   .dashboard {
     width:100%;
     height:238px;
-    background-color:#f6f7fa;
+    /* background-color:#f6f7fa; */
+    background:blue;
     margin-left:210px;
-    margin-top:-898px;
+    margin-top:-1045px;
     /* position:relative;
     top:-20px; */
   }
@@ -5993,7 +5994,7 @@ button:focus,button:active {
   #dashboardActivity {
     width:1000px;
     position:relative;
-    top:45px;
+    top:32px;
     left:-33px;
     display:block;
   }
@@ -6014,7 +6015,7 @@ button:focus,button:active {
       display:none;
   }
 
-  .dashboardContainer {
+ .dashboardContainer {
     width:1199px;
     margin-left:15px;
   }
@@ -6854,7 +6855,7 @@ button:focus,button:active {
   #dashboardActivityTwo {
     display:block;
     width:900px;
-    margin-top:35px;
+    margin-top:22px;
     margin-left:-85px;
 
   }
@@ -6933,7 +6934,7 @@ button:focus,button:active {
 
     #dashboardActivityTwo {
       width:879px;
-      margin-top:37px;
+      margin-top:25px;
     }
 
   }
@@ -7005,7 +7006,7 @@ button:focus,button:active {
     #dashboardActivityTwo {
       width:859px;
       margin-left:-65px;
-      margin-top:40px;
+      margin-top:28px;
     }
 
   }
@@ -7086,7 +7087,7 @@ button:focus,button:active {
     #dashboardActivityTwo {
       width:840px;
       margin-left:-56px;
-      margin-top:42px;
+      /* margin-top:42px; */
     }
 
   }
@@ -7184,7 +7185,7 @@ button:focus,button:active {
 
     #dashboardActivityTwo {
       width:806px;
-      margin-top:45px;
+      margin-top:33px;
       margin-left:-39px;
     }
 
@@ -7256,7 +7257,6 @@ button:focus,button:active {
 
     #dashboardActivityTwo {
       width:787px;
-      margin-top:47px;
       margin-left:-29px;
     }
 
@@ -7271,7 +7271,7 @@ button:focus,button:active {
     #dashboardActivityThree {
       display:block;
       width:680px;
-      margin-top:39px;
+      margin-top:26px;
       margin-left:25px;
     }
 
@@ -7372,7 +7372,7 @@ button:focus,button:active {
     #dashboardActivityFour {
       display:block;
       width:530px;
-      margin-top:40px;
+      margin-top:28px;
       margin-left:-22px;
     }
 
@@ -8010,7 +8010,7 @@ button:focus,button:active {
 
     #dashboardActivityThree {
       width:636px;
-      margin-top:30px;
+      /* margin-top:30px; */
     }
 
   }
@@ -8169,7 +8169,7 @@ button:focus,button:active {
     #dashboardActivityFour {
       display:block;
       width:623px;
-      margin-top:12px;
+      /* margin-top:12px; */
     }
 
   }
@@ -8405,7 +8405,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:594px;
-      margin-top:15px;
+      /* margin-top:15px; */
     }
 
   }
@@ -8486,7 +8486,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:584px;
-      margin-top:18px;
+      /* margin-top:18px; */
     }
 
   }
@@ -8655,7 +8655,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:564px;
-      margin-top:23px;
+      /* margin-top:23px; */
     }
 
   }
@@ -10002,7 +10002,7 @@ button:focus,button:active {
     #dashboardActivityFive {
       width:419px;
       display:block;
-      margin-top:10px;
+      /* margin-top:10px; */
       margin-left:-21px;
 
 
@@ -10558,8 +10558,6 @@ button:focus,button:active {
 
 
   /** MEDIA QUERIES for echo buttons ENDS **/
-
-
 
 
 
