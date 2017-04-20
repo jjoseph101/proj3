@@ -55,7 +55,7 @@ require("./routes/message.js")(app);
 // require("./routes/rating.js")(app);
 // require("./routes/searchtopic.js")(app);
 require("./routes/topic.js")(app);
-// require("./routes/userprofile.js")(app);
+require("./routes/userprofile.js")(app);
 
 
 

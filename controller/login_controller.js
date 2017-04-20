@@ -39,12 +39,6 @@ var options = {
 
 
 
-
-
-
-
-
-
     })
     .catch(function (err) {
         // POST failed... 
@@ -120,7 +114,7 @@ var options = {
 
 echoes : function(req, res){
     console.log("inside ectoes");
-    console.log(req.session.user);
+   // console.log(req.session.user);
   
     var obj = {
         userProfile : req.session.user[0],

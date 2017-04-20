@@ -12,8 +12,9 @@ module.exports = function(app) {
 
 
 app.post("/topicbycategory/:id", topicController.topicByCategory);
-//app.get("/topicbycategory/:id", topicController.topicByCategory);
-
+app.get("/topicbypopularity", topicController.topicByPopularity);
+app.get("/createEchoes", topicController.getAllCategory);
+app.post("/createEchoes", topicController.createTopic);
 
 
 }

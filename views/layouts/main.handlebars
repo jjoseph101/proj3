@@ -9,9 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700,800" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
-    <script src="javascript/script.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/javascript/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -24,8 +24,8 @@
     <div class="topNav">
       <ul>
         <li class="topNavLinks"><button id="search">Search</button></li>
-        <li class="topNavLinks"><button id="createNav">Create</button></li>
-        <li class="topNavLinks"><button id="popular">Popular</button></li>
+        <li class="topNavLinks"><a id="createNav" href="/createEchoes">Create</a></li>
+        <li class="topNavLinks"><a id="popular" href="/topicbypopularity">Popular</a></li>
       </ul>
     </div>
 
@@ -35,8 +35,8 @@
       <!-- SVG hover for upload image -->
       <div class="uploadHover">
 
-      <g class="group">
-      <?xml version="1.0" encoding="utf-8"?>
+     
+    
       <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       	 viewBox="0 0 179.5 229" style="enable-background:new 0 0 179.5 229;" xml:space="preserve">
@@ -155,7 +155,7 @@
       	</g>
       </g>
       </svg>
-      </g>
+
       </div>
       <!-- SVG Ends for upload img hover -->
 
@@ -165,8 +165,9 @@
         <p class="name">{{this.screenName}}</p>
         {{/each}}
       <div class="updateBackgroundColor">
-      <button class="btn btn-default" id="updateEchoesButton">Update Echoes</button>
-
+        
+        <a class="btn btn-default" id="updateEchoesButton" href="/updateNav">Update Echoes</a>
+   
     </div>
     </div>
     </center>
@@ -175,21 +176,12 @@
     <div id="sideNav">
       <ul class="nav">
          {{#each userInterest}}
-        <li><form action="/topicbycategory/{{this.categoryID}}" method="POST" ><button>{{this.categoryName}}</button></li>
+        <li><form action="/topicbycategory/{{this.categoryID}}" method="POST" ><button>{{this.categoryName}}</button></form></li>
         {{/each}}
-        {{!--<li>US & World</li>
-        <li>Sports</li>
-		    <li>TV & Movies</li>
-        <li>Dating</li>
-        <li>Business</li>
-        <li>Tech</li>
-        <li>Health</li>
-        <li>Music</li>
-        <li>Food</li>
-        <li>Travel</li>
-        <li>Jobs</li>--}}
+        
        </ul>
   </div>
+
 
   <!-- Dashboard Code Begins -->
   <div class="dashboard">
@@ -200,25 +192,25 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <img src="images/dashboardTwo.svg" class="" id="dashboardActivity">
+            <img src="/images/dashboardTwo.svg" class="" id="dashboardActivity">
           </div>
 
           <div class="dashboardContainer">
 
-            <img src="images/dashboard.svg" class="" id="dashboardActivityTwo">
+            <img src="/images/dashboard.svg" class="" id="dashboardActivityTwo">
 
-            <img src="images/dashboardThree.svg" id="dashboardActivityThree">
+            <img src="/images/dashboardThree.svg" id="dashboardActivityThree">
 
-            <img src="images/dashboardFour.svg" id="dashboardActivityFour">
+            <img src="/images/dashboardFour.svg" id="dashboardActivityFour">
 
-            <img src="images/dashboardFive.svg" id="dashboardActivityFive">
+            <img src="/images/dashboardFive.svg" id="dashboardActivityFive">
 
           </div>
 
         </div>
       </div>
 
-  <div class="create">
+  {{!--<div class="create">
 
   <form class="createForm">
 
@@ -258,18 +250,19 @@
 
 <button type="submit" class="btn btn-default pull-right" id="createEchoButton">Create Echo</button>
 </form>
-</div>
+</div>--}}
 </div>
 </div>
 </div>
 
 
   </div>
+  <!-- Dashboard Code Ends -->
 
-{{{body}}}
-
+  <div class="container-fluid" id="jumboContainer">
+  	{{{body}}}
   	</div>
-
+{{!--
 <div class="newEchoes">
 
 <div class="container">
@@ -442,7 +435,7 @@
     <li class="cell"><button type="button" class="buttonTopic" data-toggle="modal" data-target="#myModal">Topic</button></li>
   </ul>
 
-</div>
+</div>--}}
 
   </body>
 </html>
