@@ -505,6 +505,8 @@
                               </div>
                             </form>
                 </div>
+                <dialog id="captchaMismatch">Your captcha entry does not match the numbers shown!</dialog>
+                <dialog id="passwordMismatch">Your passwords do not match!</dialog>
 
                   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
                 </div>
@@ -527,7 +529,7 @@
               }
               }
               if(why != ""){
-              alert(why);
+              document.getElementById("captchaMismatch").showModal();
               return false;
               }
               }
@@ -588,7 +590,7 @@
             var password2=$("#exampleInputPassword2").val().trim();
             if (password1!=password2) {
               console.log("mismatched passwords");
-              alert("Passwords do not match!");
+              document.getElementById("passwordMismatch").showModal();
               return
             }
             var userInterests = [];
