@@ -594,7 +594,7 @@
             if (password1!=password2) {
               console.log("mismatched passwords");
               document.getElementById("passwordMismatch").showModal();
-              return
+              return false;
             }
             var userInterests = [];
             for (i=1; i<11; i++) {
