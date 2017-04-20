@@ -84,9 +84,11 @@
     <script>
         $("#loginButton").on("click", function() {
             console.log("inside login")
+
             var returnedUser = {
                 userName: $("#userName").val().trim(),
                 password: $("#password").val().trim()
+                    //connectionID: ConnectionID
             }
             $.post("/loggedIn", returnedUser, function(data) {
                 console.log(data);

@@ -11,7 +11,9 @@ module.exports = function(app) {
 
 app.post("/startChat", messageController.startChat);
 
+app.post("/sendChat", messageController.sendChat);
 
+app.post("/setConnectionID", messageController.setConnection);
 
 
 
