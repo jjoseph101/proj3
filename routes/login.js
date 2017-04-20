@@ -22,7 +22,7 @@ app.get("/signup", function(req, res) {
 
     res.sendFile(path.join(__dirname + "/../public/signup.html"));
 
-        loggedInCheck.alreadyLogIn(req, res);
+        //loggedInCheck.alreadyLogIn(req, res);
 });	
 app.get("/login", function(req, res) {
 
@@ -34,7 +34,7 @@ app.get("/login", function(req, res) {
 
 app.post("/loggedIn", loginController.loggedIn);
 
-
+app.post("/signup", loginController.signUp);
 
 
 app.get("/echoes", loggedInCheck.requireLogin, loginController.echoes);

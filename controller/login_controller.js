@@ -7,7 +7,7 @@ var session = require('express-session');
 
 var signupLogin = {
 signUp : function(req, res){
- 
+console.log(req.body);
  var userProfile = {
         userName : req.body.userName,
         password : req.body.password,
@@ -16,11 +16,13 @@ signUp : function(req, res){
         phone: req.body.phone,
         postalCode: req.body.postalCode,
         country: req.body.country,
-        interest: req.body.interest
+        interests: req.body.interests
     }
+    console.log("UP: ");
+    console.log(userProfile);
 var options = {
     method: 'POST',
-    uri: 'http://echoingwallapiservice.azurewebsites.net/login',
+    uri: 'http://echoingwallapiservice.azurewebsites.net/signup',
     body: userProfile,
     json: true // Automatically stringifies the body to JSON 
 };
@@ -28,13 +30,15 @@ var options = {
         rp(options)
             .then(function (response) {
 
-                   // console.log(response);
+                   console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
-
+                        console.log("inside signup200");
 
                          res.send('/login');
 
+                     } else {
+                      res.json({ error: response.message });
                      }
 
 
