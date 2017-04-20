@@ -3,7 +3,7 @@
   	
   			<div class="col-lg-12 col-md-12 col-sm-12">
 
-                <div id="chatHistory"></div>
+                <div>
                     {{#each messages}}
                     <div>
                         <p>{{this.screenName}}</p>
@@ -11,6 +11,8 @@
                     </div>
                     {{/each}}
                 </div>
+  			<div id="chatHistory">
+  			</div>
                     <form action="/sendChat" method="POST">
                     
                     <textarea  name="message"></textarea>
@@ -19,7 +21,7 @@
       
                     <input type ="hidden" name="clientID" value="{{clientID}}">
       
-                    <button type="submit" class="btn btn-lg" >SEND</button>
+                    <button type="submit" class="btn btn-lg" id="sendChat" >SEND</button>
                      </form>
                     </div>
   			</div>

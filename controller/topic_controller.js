@@ -166,7 +166,7 @@ var options = {
 
 },
 topicByPopularity : function(req, res){
-    console.log("inside topicbyCategory")
+ 
     
  
 var options = {
@@ -178,18 +178,24 @@ var options = {
         rp(options)
             .then(function (response) {
 
-                    console.log(response.data[0]);
                 // POST succeeded... 
                       if(response.status == 200){
                         console.log("popular");
-                        //console.log(req.session.user[0]);
-                        console.log(req.session.user[0][0].ConnectionID);
+                      
+                       
+                        for(var i=0; i<response.data[0].length; i++){
+
+                            response.data[0][i].connectionID = req.session.user[0][0].ConnectionID;
+
+
+                        }
+                          console.log(response.data[0]);
+
                         var obj = {
                             userProfile : req.session.user[0],
                             userInterest : req.session.user[1],
                             userRating: req.session.user[2],
-                            topics: response.data[0],
-                            connectionID: req.session.user[0][0].ConnectionID
+                            topics: response.data[0]     
                         }
                         
                          res.render("topicByPopularity", obj );

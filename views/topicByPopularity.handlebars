@@ -1,11 +1,11 @@
 
   		<div class="row">
-<h1>{{connectionID}}</h1>
+
   		{{#each topics}}
   			<div class="col-lg-6 col-md-6 col-sm-6">
   				<div>
             <div class="textGrouped">
-              <h1>{{connectionID}}</h1>
+          
               <h4>{{this.topicName}}</h4>
               <p>{{this.topicDescription}}
               <a href="" class="readMore">Read More</a>
@@ -13,8 +13,11 @@
              <form action="/startChat" method="POST">
             
             <input type ="hidden" name="topicID" value="{{this.TopicID}}">
-             <input type ="hidden" name="connectionID" value={{connectionID}}>
-            
+            {{!--{{#each userProfile}}
+             <input type ="hidden" name="connectionID" value={{this.ConnectionID}}>
+            {{/each}}--}}
+             <input type ="hidden" name="connectionID" value={{this.connectionID}}>
+
             <button type="submit" class="btn btn-lg" >JOIN</button>
           </form>
 

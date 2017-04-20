@@ -23,14 +23,20 @@ res.json({ status: 'ok' });
 
 startChat : function(req, res){
 console.log("inside start chat");
+console.log(req.body);
 
+console.log("this is the new client id for chatroom from after we click join");
 console.log(req.session.user[0][0].ConnectionID);
+
+console.log("this is the old from popular client id from before we click join");
+console.log(req.body.connectionID);
+
 var topicId = req.body.topicID;
 
 
-var connectionId = "1234577"
+
 var chat = {topicID : topicId,
-    connectionID: connectionId  //the cookie or the one from previous page... THEY ARE DIFFERENT
+    connectionID: req.session.user[0][0].ConnectionID  //the cookie or the one from previous page... THEY ARE DIFFERENT
 
 }
 console.log("this is topic id inside start chat");
@@ -61,7 +67,7 @@ var options = {
                             userRating: req.session.user[2],
                             messages: response.data[0],
                             topicID: topicId,
-                            clientID: connectionId
+                            clientID: req.session.user[0][0].ConnectionID
                         }
                        
                             res.render("chatRoom", obj);
@@ -87,8 +93,23 @@ sendChat: function(req, res){
   senderID: req.session.user[0][0].userID,
   messageTopicID: req.body.topicID,
   screenName:  req.session.user[0][0].screenName,
-  clientID: req.body.clientID
+  clientID: req.session.user[0][0].ConnectionID 
 }
+var subScribe = {
+    topicID :req.body.topicID,
+    connectionID: req.session.user[0][0].ConnectionID 
+}
+console.log(chat);
+var subscribe = {
+    method: 'POST',
+    uri: 'http://echoingwallapiservice.azurewebsites.net/get/topic/subscribetotopic',
+    body: subScribe,
+    json: true // Automatically stringifies the body to JSON 
+};
+ 
+        rp(subscribe);
+            
+
 
 var options = {
     method: 'POST',
@@ -97,40 +118,40 @@ var options = {
     json: true // Automatically stringifies the body to JSON 
 };
  
-        rp(options)
-            .then(function (response) {
+        rp(options);
+    //         .then(function (response) {
 
-                   console.log(response);
-                // POST succeeded... 
-                      if(response.status == 200){
+    //                console.log(response);
+    //             // POST succeeded... 
+    //                   if(response.status == 200){
 
                     
 
-                        console.log(200);
-                         console.log(response.data[0]);
+    //                     console.log(200);
+    //                     // console.log(response.data[0]);
                         
-                        // var obj = {
-                        //       userProfile : req.session.user[0],
-                        //     userInterest : req.session.user[1],
-                        //     userRating: req.session.user[2],
-                        //     messages: response.data[0],
-                        //     topicID: req.body.topicID,
-                        //     clientID: req.body.clientID
-                        // }
+    //                     // var obj = {
+    //                     //       userProfile : req.session.user[0],
+    //                     //     userInterest : req.session.user[1],
+    //                     //     userRating: req.session.user[2],
+    //                     //     messages: response.data[0],
+    //                     //     topicID: req.body.topicID,
+    //                     //     clientID: req.body.clientID
+    //                     // }
                        
-                        //     res.render("chatRoom", obj);
+    //                     //     res.render("chatRoom", obj);
+    //                  res.json({"status": "ok"});
                      
-                     
-                     }else{
-                         console.log(500);
-                         res.json({ error: response.message });
-                     }
+    //                  }else{
+    //                      console.log(500);
+    //                      res.json({ error: response.message });
+    //                  }
 
 
-    })
-    .catch(function (err) {
-        res.json({ error: err.message });
-    });
+    // })
+    // .catch(function (err) {
+    //     res.json({ error: err.message });
+    // });
 
 
 }

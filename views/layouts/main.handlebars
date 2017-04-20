@@ -32,14 +32,15 @@
 
 var ConnectionID;
  
-  $(function () {
+ // $(function () {
 
             	var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
             	var contosoChatHubProxy = connection.createHubProxy('ChatHub');
 
-            	contosoChatHubProxy.on('ReceiveMessage', function (sender, message) {
+            	contosoChatHubProxy.on('ReceiveMessage', function (senderID, sender, message) {
 
-		     // buildChatResponse (sender, message);
+		          // buildChatResponse (sender, message);
+              appendChat(sender, message);
                        
            	 });
 
@@ -48,9 +49,23 @@ var ConnectionID;
                 var returnedUser = {ConnectionID : connection.id};
 
                 $.post("/setConnectionID", returnedUser);
+                
+
 
             });
-         })
+ function appendChat(sender, message){
+
+    var container = $('#chatHistory');
+    var chatContainer = '<div><p>'+ sender + '</p><p>'+ message + '</p></div>';
+
+    container.append(chatContainer);
+
+    $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
+
+
+ }
+
+     //    })
 
 
 
