@@ -593,7 +593,7 @@
 
     <script>
 		$("#exampleInputPassword2").on("keyup", function(){
-
+			console.log("password keyup");
 			// original password input
 			var password1 = $("#exampleInputPassword1").val().trim();
 			// retype passwword input
@@ -601,7 +601,7 @@
 			// if the two strings match
 			if(password1 != password2){
 				//show the user that the passwords matched
-				 document.getElementById("passwordMismatch").showModal;
+				 document.getElementById("passwordMismatch").showModal();
 			}
 			// if the two strings are different
 		});

@@ -28,7 +28,7 @@ app.get("/login", function(req, res) {
 
     res.sendFile(path.join(__dirname + "/../public/login.html"));
 
-    loggedInCheck.alreadyLogIn(req, res);
+    //loggedInCheck.alreadyLogIn(req, res);
 });	
 
 
