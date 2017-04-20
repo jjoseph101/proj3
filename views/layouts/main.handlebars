@@ -161,8 +161,9 @@
 
       <div class="welcomePerson">
         <p>Welcome Back!</p>
-        <p class="name">Bobby Billman</p>
-
+         {{#each userProfile}}
+        <p class="name">{{this.screenName}}</p>
+        {{/each}}
       <div class="updateBackgroundColor">
       <button class="btn btn-default" id="updateEchoesButton">Update Echoes</button>
 
@@ -174,7 +175,7 @@
     <div id="sideNav">
       <ul class="nav">
          {{#each userInterest}}
-        <li>{{this.categoryName}}</li>
+        <li><form action="/topicbycategory/{{this.categoryID}}" method="POST" ><button>{{this.categoryName}}</button></li>
         {{/each}}
         {{!--<li>US & World</li>
         <li>Sports</li>

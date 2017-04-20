@@ -47,7 +47,11 @@
                         </form>
                         <div class="buttonsGrouped">
                             <button type="submit" class="btn btn-default pull-right" id="loginButton">Submit</button>
+<<<<<<< HEAD
+                            <a href="/signup" type="button" class="btn btn-default pull-right" id="signUp">Sign Up</a>
+=======
                             <a href "/signup" type="button" class="btn btn-default" id="signUp">Sign Up</a>
+>>>>>>> 11e9293ce26f4577e5598931ad4bd43a6c52fe03
                         </div>
 
                         <div id="loginResult">
@@ -87,6 +91,8 @@
             }
             $.post("/loggedIn", returnedUser, function(data) {
                 console.log(data);
+
+
                 if (data.error) {
                     console.log("inside error")
                     $("#loginResult").html(data.error);

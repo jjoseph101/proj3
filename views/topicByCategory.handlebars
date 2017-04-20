@@ -1,0 +1,30 @@
+   <div class="container-fluid" id="jumboContainer">
+  		<div class="row">
+
+  		{{#each topics}}
+  			<div class="col-lg-6 col-md-6 col-sm-6">
+  				<div class="jumbotron">
+            <div class="textGrouped">
+              <h4>{{this.topicName}}</h4>
+              <p>{{this.topicDescription}}
+              <a href="" class="readMore">Read More</a>
+              
+             <form action="/startChat" method="POST">
+            
+            <input type ="hidden" name="topicID" value="{{this.topicID}}">
+            
+            <button type="submit" class="btn btn-lg" >JOIN</button>
+          </form>
+
+
+              </p>
+              <div class="date">{{this.chatUpdatedAt}}</div>
+            </div>
+
+  				</div>
+  			</div>
+{{/each}}
+  			</div>
+
+  		</div>
+  
