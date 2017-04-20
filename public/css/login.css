@@ -3,6 +3,10 @@ body {
   background-color:;
 }
 
+#moveToTop {
+  margin-top:18px;
+}
+
 .logo {
   width:250px;
   margin-top:50px;

@@ -6294,11 +6294,11 @@ button:focus,button:active {
     margin-right:30px;
   }
 
-  #exampleInputEmail1,
+  /* #exampleInputEmail1,
   #exampleInputPassword1,
   #exampleTextarea  {
     width:400px;
-  }
+  } */
 
 
 
@@ -6545,9 +6545,9 @@ button:focus,button:active {
     width:400px;
   }
 
-  #exampleInputEmail1, #exampleInputPassword1, #exampleTextarea {
+  /* #exampleInputEmail1, #exampleInputPassword1, #exampleTextarea {
     width:330px;
-  }
+  }*/
 }
 
 @media screen and (max-width:545px) {
@@ -6557,9 +6557,9 @@ button:focus,button:active {
     margin-left:15px;
   }
 
-  #exampleInputEmail1, #exampleInputPassword1, #exampleTextarea {
+  /* #exampleInputEmail1, #exampleInputPassword1, #exampleTextarea {
     width:270px;
-  }
+  } */
 }
 
 @media screen and (max-width:490px){
