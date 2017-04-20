@@ -13,7 +13,7 @@ app.get("/", function(req, res) {
 
 
     res.sendFile(path.join(__dirname + "/../public/login.html"));
-
+        loggedInCheck.alreadyLogIn(req, res);
     
 });	
 
@@ -22,13 +22,13 @@ app.get("/signup", function(req, res) {
 
     res.sendFile(path.join(__dirname + "/../public/signup.html"));
 
-        //loggedInCheck.alreadyLogIn(req, res);
+        loggedInCheck.alreadyLogIn(req, res);
 });	
 app.get("/login", function(req, res) {
 
     res.sendFile(path.join(__dirname + "/../public/login.html"));
 
-    //loggedInCheck.alreadyLogIn(req, res);
+    loggedInCheck.alreadyLogIn(req, res);
 });	
 
 
@@ -40,7 +40,9 @@ app.post("/signup", loginController.signUp);
 app.get("/echoes", loggedInCheck.requireLogin, loginController.echoes);
 app.get("/errorPage", loggedInCheck.requireLogin, function(req, res){
 	var obj ={
-		//currentUser : req.session.user.firstName
+		userProfile : req.session.user[0],
+        userInterest : req.session.user[1],
+        userRating: req.session.user[2],
 	}
     res.render("errorPage", obj);
 })

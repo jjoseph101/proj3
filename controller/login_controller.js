@@ -38,14 +38,15 @@ var options = {
                          res.send('/login');
 
                      } else {
-                      res.json({ error: response.message });
+                      res.send({ error: response.message });
                      }
 
 
 
     })
     .catch(function (err) {
-        // POST failed... 
+        // POST failed...
+        res.json({ error: response.message });
     });
 
 
@@ -53,6 +54,7 @@ var options = {
 
 
 },
+
 loggedIn : function(req, res){
 
     var userProfile = {
@@ -91,7 +93,7 @@ var options = {
                      
                      }else{
                          console.log(500);
-                         res.json({ error: response.message });
+                         res.send({ error: response.message });
                      }
 
 
@@ -126,13 +128,14 @@ echoes : function(req, res){
         userRating: req.session.user[2],
         userEchoes: req. session.user[3]
     }
-    res.render("echoes", obj);
+            if(req. session.user[3].length > 0){
+                
+                res.render("echoes", obj);
+
+            }else{
+                res.render("noTopic", obj);
+            }
 }
-
-
-
-
-
 
 
 }

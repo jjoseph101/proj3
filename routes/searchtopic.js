@@ -11,8 +11,8 @@ module.exports = function(app) {
 
 
 
-app.post("/searchEchoes", searchController.topicSearch);
-app.get("/searchEchoes", searchController.search);
+app.post("/searchEchoes",loggedInCheck.requireLogin, searchController.topicSearch);
+app.get("/searchEchoes", loggedInCheck.requireLogin, searchController.search);
 
 
 }

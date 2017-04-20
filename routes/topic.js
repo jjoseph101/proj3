@@ -11,10 +11,10 @@ module.exports = function(app) {
 
 
 
-app.post("/topicbycategory/:id", topicController.topicByCategory);
-app.get("/topicbypopularity", topicController.topicByPopularity);
-app.get("/createEchoes", topicController.getAllCategory);
-app.post("/createEchoes", topicController.createTopic);
+app.post("/topicbycategory/:id", loggedInCheck.requireLogin, topicController.topicByCategory);
+app.get("/topicbypopularity", loggedInCheck.requireLogin, topicController.topicByPopularity);
+app.get("/createEchoes", loggedInCheck.requireLogin, topicController.getAllCategory);
+app.post("/createEchoes", loggedInCheck.requireLogin, topicController.createTopic);
 
 
 }

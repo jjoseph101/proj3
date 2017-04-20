@@ -16,7 +16,11 @@ var option ={
 }
 rp(option)
     .then(function (allCategory) {
+                   
+        
         if(allCategory.status == 200){
+
+               
 
                        console.log(200 + "for interest");
                           
@@ -30,19 +34,23 @@ rp(option)
                           }
                          
                         // console.log(obj);
-                         
-                         res.render('search', obj);
-                        
-                 
-                     
+                        if(allCategory.data[0].length >0){
+
+                              res.render('search', obj);
+
+                        }else{
+
+                             res.redirect("/errorPage");
+                        }
+   
                      }else{
                         // console.log(500 + "for interest");
-                         res.json({ error: response.message });
+                         res.redirect("/errorPage");
                      }
 
  })
     .catch(function (err) {
-            res.json({ error: err.message });
+             res.redirect("/errorPage");
 });
 
 
@@ -74,12 +82,9 @@ var options = {
  
         rp(options)
             .then(function (response) {
-
-                   // console.log(response);
+              
                 // POST succeeded... 
                       if(response.status == 200){
-
-                    
 
                         console.log(200);
                          console.log(response.data[0]);
@@ -94,22 +99,15 @@ var options = {
                         res.render("topicBySearch", obj);
                         }else{
                             res.render("noTopic", obj);
-                        }
-                     
+                        }  
                      }else{
                          console.log(500);
-                         res.json({ error: response.message });
+                          res.redirect("/errorPage");
                      }
-
-
     })
     .catch(function (err) {
-        res.json({ error: err.message });
+          res.redirect("/errorPage");
     });
-
-
-
-
 
 }
 }

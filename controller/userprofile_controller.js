@@ -44,7 +44,7 @@ rp(option2)
         //console.log(allCategory.data);
         // Process html... 
 
-        // if(allCategory.status == 200){
+        if(allCategory.status == 200){
 
 
 
@@ -52,7 +52,8 @@ rp(option2)
 
         rp(options)
             .then(function (response) {
-
+               
+                         
                    // console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
@@ -67,33 +68,37 @@ rp(option2)
                           }
                          
                         // console.log(obj);
-                         
+                         if(response.data[0].lenght > 0){
+
                          res.render('updateNav', obj);
-                        
+                         }else{
+
+                             res.redirect("/errorPage")
+                         }
                  
                      
                      }else{
                         // console.log(500 + "for interest");
-                         res.json({ error: response.message });
+                        res.redirect("/errorPage")
                      }
 
                      })
                     .catch(function (err) {
-                        res.json({ error: err.message });
+                          res.redirect("/errorPage")
                     });
 
-        // }else{
+        }else{
 
-        //      console.log(500 + "for iall");
-        //                  res.json({ error: allCategory.message });
-        // }
+             console.log(500 + "for iall");
+                 res.redirect("/errorPage")
+        }
 
 
 
     })
     .catch(function (err) {
-                        res.json({ error: err.message });
-                    });
+                        res.redirect("/errorPage")
+    });
 
  
 
@@ -137,20 +142,21 @@ var options = {
                             console.log("post successful");
                 rp(option2)
                     .then(function (response) {
+                        
 
                         // console.log(response);
                         // POST succeeded... 
                             if(response.status == 200){
-                                     console.log("get interest2 successful");
+                                console.log("get interest2 successful");
                                 req.session.user[1] =response.data[0];
                         
-                                
-                                var obj = {
-        userProfile : req.session.user[0],
-        userInterest : req.session.user[1],
-        userRating: req.session.user[2],
-        userEchoes: req. session.user[3]
-    }
+                                                    
+                        var obj = {
+                            userProfile : req.session.user[0],
+                            userInterest : req.session.user[1],
+                            userRating: req.session.user[2],
+                            userEchoes: req. session.user[3]
+                        }
                                 
                                 console.log("before echoes");
                                 
@@ -160,12 +166,12 @@ var options = {
                             
                             }else{
                                 // console.log(500 + "for interest");
-                                res.json({ error: response.message });
+                               res.redirect("/errorPage");
                             }
 
                             })
                             .catch(function (err) {
-                                res.json({ error: err.message });
+                               res.redirect("/errorPage");
                             });
 
                             
@@ -174,7 +180,7 @@ var options = {
                             
                             }else{
                                 console.log(500);
-                                res.json({ error: data.message });
+                                 res.redirect("/errorPage");
                             }
 
 
@@ -190,13 +196,19 @@ var options = {
 
     })
     .catch(function (err) {
-        res.json({ error: err.message });
+        res.redirect("/errorPage");
     });
 
 
 
 
 
+
+},
+signout: function(req, res){
+req.session.reset();
+console.log("signed out!")
+  res.redirect('/');
 
 }
 

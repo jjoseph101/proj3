@@ -32,13 +32,10 @@ var options = {
                 // POST succeeded... 
                       if(response.status == 200){
 
-
                          res.send('/login');
-
                      } else {
-                        res.json({ error: response.message });
+                        res.send({ error: response.message });
                      }
-
     })
     .catch(function (err) {
         // POST failed... 
@@ -46,6 +43,7 @@ var options = {
     });
 
 },
+}
 
 module.exports=signupLogin;
 

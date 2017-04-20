@@ -9,11 +9,11 @@ var path = require("path");
 module.exports = function(app) {
 
 
-app.get("/updateNav", userProfileController.getNavOption);
+app.get("/updateNav", loggedInCheck.requireLogin, userProfileController.getNavOption);
 
-app.post("/updateNav", userProfileController.postNavOption);
+app.post("/updateNav", loggedInCheck.requireLogin, userProfileController.postNavOption);
 
-
+app.get("/logout", userProfileController.signout);
 
 
 

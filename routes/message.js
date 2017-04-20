@@ -9,9 +9,9 @@ var path = require("path");
 module.exports = function(app) {
 
 
-app.post("/startChat", messageController.startChat);
+app.post("/startChat", loggedInCheck.requireLogin, messageController.startChat);
 
-app.post("/sendChat", messageController.sendChat);
+app.post("/sendChat", loggedInCheck.requireLogin, messageController.sendChat);
 
 app.post("/setConnectionID", messageController.setConnection);
 

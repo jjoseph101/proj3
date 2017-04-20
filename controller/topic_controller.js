@@ -7,7 +7,6 @@ var session = require('express-session');
 
 var topic = {
 
-
 getAllCategory: function(req, res){
 
     var option ={
@@ -19,11 +18,12 @@ getAllCategory: function(req, res){
 }
 rp(option)
     .then(function (allCategory) {
+
+                    
         if(allCategory.status == 200){
 
                        console.log(200 + "for interest");
-                          
-                          var obj = {
+                           var obj = {
                                userProfile : req.session.user[0],
                             userInterest : req.session.user[1],
                             userRating: req.session.user[2],
@@ -32,20 +32,23 @@ rp(option)
 
                           }
                          
-                        // console.log(obj);
                          
-                         res.render('createTopic', obj);
-                        
+                        // console.log(obj);
+                         if(allCategory.data[0].length >0){
+                                res.render('createTopic', obj);
+                         }else{
+                             res.redirect("/errorPage");
+
+                         }
                  
-                     
                      }else{
                         // console.log(500 + "for interest");
-                         res.json({ error: response.message });
+                           res.redirect("/errorPage");
                      }
 
  })
     .catch(function (err) {
-            res.json({ error: err.message });
+         res.redirect("/errorPage");
 });
 
     
@@ -78,29 +81,33 @@ var options = {
         rp(options)
             .then(function (response) {
 
+                
+                        
                     //console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
 
-                        var obj = {
+                       var obj = {
                             userProfile : req.session.user[0],
                             userInterest : req.session.user[1],
                             userRating: req.session.user[2],
                             userEchoes: req. session.user[3]
 
                         }
-                        
+                        if( req. session.user[3].length >0){
                          res.render("echoes", obj );
                          //res.render("echoes", obj);
+                        }else{
 
+                            res.render('noTopic', obj);
+                        }
                    }else{
-                         console.log(500);
-                         res.json({ error: response.message });
+                        res.redirect("/errorPage")
                      }
 
                     })
                     .catch(function (err) {
-                        res.json({ error: err.message });
+                          res.redirect("/errorPage")
                     });
 
 
@@ -121,7 +128,7 @@ var options = {
  
         rp(options)
             .then(function (response) {
-
+             
                     //console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
@@ -135,16 +142,16 @@ var options = {
 
                         }
                             if (response.data[0].length > 0){
-                        res.render("topicByCategory", obj);
+                                res.render("topicByCategory", obj);
                         }else{
-                            res.render("noTopic", obj);
+                                 res.render("noTopic", obj);
                         }
                       //res.render("topicByCategory", obj );
                          //res.render("echoes", obj);
 
                    }else{
                          console.log(500);
-                         res.json({ error: response.message });
+                          res.redirect("/errorPage")
                      }
 
 
@@ -157,7 +164,7 @@ var options = {
 
     })
     .catch(function (err) {
-        res.json({ error: response.message });
+      res.redirect("/errorPage")
     });
 
 
@@ -177,7 +184,8 @@ var options = {
  
         rp(options)
             .then(function (response) {
-
+                     
+                        
                 // POST succeeded... 
                       if(response.status == 200){
                         console.log("popular");
@@ -198,12 +206,19 @@ var options = {
                             topics: response.data[0]     
                         }
                         
-                         res.render("topicByPopularity", obj );
+                      
+                         //res.render("echoes", obj);
+                        if (response.data[0].length > 0){
+                                res.render("topicByPopularity", obj );
+                        }else{
+                                 res.render("noTopic", obj);
+                        }
+                      //res.render("topicByCategory", obj );
                          //res.render("echoes", obj);
 
                    }else{
                          console.log(500);
-                         res.json({ error: response.message });
+                          res.redirect("/errorPage")
                      }
 
 
@@ -216,7 +231,7 @@ var options = {
 
     })
     .catch(function (err) {
-        res.json({ error: response.message });
+         res.redirect("/errorPage")
     });
 
 
