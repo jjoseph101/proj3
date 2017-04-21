@@ -59,25 +59,14 @@ var ConnectionID;
     var container = $('#chatHistory');
     
 		
-		 var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>'; 
+		 var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>'; 
 
-		 // var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(""' + senderID + ', ' + sender + '")" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>';
-
-		 //var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ', '' + sender + '')" id="screenName">' + sender + '</button><p>' + message + '</p></div>';
+		 
      console.log("Running appendChat function...")
      console.log(chatContainer) ;
 
 
 
-
-
-
-    //var chatContainer = '<div><button class="btn btn-default" class="screenNameButton">'+ sender + '</button><p>'+ message + '</p></div>';
-
-  //  var chatContainer = ‘<div><button class=“btn btn-default” onclick=“openRateModal(’ + senderID + ‘, “’ + sender + ‘“)” id=“screenName”>‘+ sender + ‘</button><p>‘+ message + ‘</p></div>’;
-		
-	//	$(.screenNameButton).data()
-		
 		
 		container.append(chatContainer);
 

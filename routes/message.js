@@ -15,6 +15,7 @@ app.post("/sendChat", loggedInCheck.requireLogin, messageController.sendChat);
 
 app.post("/setConnectionID", messageController.setConnection);
 
+app.get("/startChat1", loggedInCheck.requireLogin, messageController.startChat);
 
 
 

@@ -22,6 +22,17 @@ res.json({ status: 'ok' });
 },
 
 startChat : function(req, res){
+
+
+    req.session.user[0][0].selectedTopic = (req.body.topicID == undefined?req.session.user[0][0].selectedTopic:req.body.topicID);
+
+
+
+
+    var topicId= req.session.user[0][0].selectedTopic;
+
+
+
 console.log("inside start chat");
 console.log(req.body);
 
@@ -29,7 +40,7 @@ console.log("this is the new client id for chatroom from after we click join");
 console.log(req.session.user[0][0].ConnectionID);
 
 
-var topicId = req.body.topicID;
+//var topicId = req.body.topicID;
 
 console.log("this is topic id inside start chat");
 console.log(topicId);
@@ -74,13 +85,13 @@ var options = {
                      
                      }else{
                          console.log(500);
-                         res.json({ error: response.message });
+                         res.redirect("/errorPage");
                      }
 
 
     })
     .catch(function (err) {
-        res.json({ error: err.message });
+        res.redirect("/errorPage");
     });
 
 
@@ -117,40 +128,41 @@ var options = {
     json: true // Automatically stringifies the body to JSON 
 };
  
-        rp(options);
-    //         .then(function (response) {
+        rp(options).then(function (response) {
 
-    //                console.log(response);
-    //             // POST succeeded... 
-    //                   if(response.status == 200){
+                   console.log(response);
+                // POST succeeded... 
+                      if(response.status == 200){
 
                     
 
-    //                     console.log(200);
-    //                     // console.log(response.data[0]);
+                        console.log(200);
+                        // console.log(response.data[0]);
                         
-    //                     // var obj = {
-    //                     //       userProfile : req.session.user[0],
-    //                     //     userInterest : req.session.user[1],
-    //                     //     userRating: req.session.user[2],
-    //                     //     messages: response.data[0],
-    //                     //     topicID: req.body.topicID,
-    //                     //     clientID: req.body.clientID
-    //                     // }
+                        // var obj = {
+                        //       userProfile : req.session.user[0],
+                        //     userInterest : req.session.user[1],
+                        //     userRating: req.session.user[2],
+                        //     messages: response.data[0],
+                        //     topicID: req.body.topicID,
+                        //     clientID: req.body.clientID
+                        // }
                        
-    //                     //     res.render("chatRoom", obj);
-    //                  res.json({"status": "ok"});
+                        //     res.render("chatRoom", obj);
+                        res.redirect("/startChat1");
+
                      
-    //                  }else{
-    //                      console.log(500);
-    //                      res.json({ error: response.message });
-    //                  }
+                     
+                     }else{
+                         console.log(500);
+                         res.redirect("errorPage");
+                     }
 
 
-    // })
-    // .catch(function (err) {
-    //     res.json({ error: err.message });
-    // });
+    })
+    .catch(function (err) {
+         res.redirect("errorPage");
+    });
 
 
 }
