@@ -139,8 +139,9 @@ var options = {
                             userRating: req.session.user[2],
                             topics: response.data[0]
 
-
                         }
+                        console.log("topic")
+                        console.log(response.data[0]);
                             if (response.data.length > 0){
                                 console.log("if >")
                                 res.render("topicByCategory", obj);

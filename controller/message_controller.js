@@ -28,19 +28,18 @@ console.log(req.body);
 console.log("this is the new client id for chatroom from after we click join");
 console.log(req.session.user[0][0].ConnectionID);
 
-console.log("this is the old from popular client id from before we click join");
-console.log(req.body.connectionID);
 
 var topicId = req.body.topicID;
 
+console.log("this is topic id inside start chat");
+console.log(topicId);
 
 
 var chat = {topicID : topicId,
     connectionID: req.session.user[0][0].ConnectionID  //the cookie or the one from previous page... THEY ARE DIFFERENT
 
 }
-console.log("this is topic id inside start chat");
-console.log(topicId);
+
 
 var options = {
     method: 'POST',
