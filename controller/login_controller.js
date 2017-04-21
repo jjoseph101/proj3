@@ -3,146 +3,116 @@ var rp = require("request-promise");
 
 var session = require('express-session');
 
-
-
 var signupLogin = {
-signUp : function(req, res){
-console.log(req.body);
- var userProfile = {
-        userName : req.body.userName,
-        password : req.body.password,
-        screenName : req.body.screenName,
-        email: req.body.email,
-        phone: req.body.phone,
-        postalCode: req.body.postalCode,
-        country: req.body.country,
-        interests: req.body.interests
-    }
-    console.log("UP: ");
-    console.log(userProfile);
-var options = {
-    method: 'POST',
-    uri: 'http://echoingwallapiservice.azurewebsites.net/signup',
-    body: userProfile,
-    json: true // Automatically stringifies the body to JSON 
-};
- 
-        rp(options)
-            .then(function (response) {
+    signUp: function (req, res) {
+        console.log(req.body);
+        var userProfile = {
+            userName: req.body.userName,
+            password: req.body.password,
+            screenName: req.body.screenName,
+            email: req.body.email,
+            phone: req.body.phone,
+            postalCode: req.body.postalCode,
+            country: req.body.country,
+            interests: req.body.interests
+        }
+        console.log("UP: ");
+        console.log(userProfile);
+        var options = {
+            method: 'POST',
+            uri: 'http://echoingwallapiservice.azurewebsites.net/signup',
+            body: userProfile,
+            json: true // Automatically stringifies the body to JSON
+        };
 
-                   console.log(response);
-                // POST succeeded... 
-                      if(response.status == 200){
-                        console.log("inside signup200");
+        rp(options).then(function (response) {
 
-                         res.send('/login');
+            console.log(response);
+            // POST succeeded...
+            if (response.status == 200) {
+                console.log("inside signup200");
 
-                     } else {
-                      res.send({ error: response.message });
-                     }
+                res.send('/login');
 
+            } else {
+                res.send({error: response.message});
+                }
 
+            })
+            .catch(function (err) {
+                // POST failed...
+                res.json({error: response.message});
+            });
 
-    })
-    .catch(function (err) {
-        // POST failed...
-        res.json({ error: response.message });
-    });
+    },
 
+    loggedIn: function (req, res) {
 
+        var userProfile = {
+            userName: req.body.userName,
+            password: req.body.password
+        }
 
+        var options = {
+            method: 'POST',
+            uri: 'http://echoingwallapiservice.azurewebsites.net/login',
+            body: userProfile,
+            json: true // Automatically stringifies the body to JSON
+        };
 
+        rp(options).then(function (response) {
 
-},
+            // console.log(response); POST succeeded...
+            if (response.status == 200) {
 
-loggedIn : function(req, res){
+                console.log(200);
+                var currentUser = response.data;
+                // console.log(currentUser);
+                req.session.user = currentUser;
+                //  req.session.user.interest = resonse.data[0][1];
 
-    var userProfile = {
-        userName : req.body.userName,
-        password : req.body.password,
-        
-    }
+                res.locals.user = currentUser;
+                res.send('/echoes');
 
-var options = {
-    method: 'POST',
-    uri: 'http://echoingwallapiservice.azurewebsites.net/login',
-    body: userProfile,
-    json: true // Automatically stringifies the body to JSON 
-};
- 
-        rp(options)
-            .then(function (response) {
-
-                   // console.log(response);
-                // POST succeeded... 
-                      if(response.status == 200){
-
-                    
-
-                        console.log(200);
-                          var currentUser = response.data;
-                       // console.log(currentUser);
-                         req.session.user = currentUser;
-                      //  req.session.user.interest = resonse.data[0][1];
-
-                         
-                         res.locals.user = currentUser;
-                         res.send('/echoes');
-                        
-                 
-                     
-                     }else{
-                         console.log(500);
-                         res.send({ error: response.message });
-                     }
-
-
-
-
-//thinking of posting all interest to cookie;
-//pass it in to all the things
-
-//tryhref ?id={{categoryID}}
-
-
-
-
-    })
-    .catch(function (err) {
-        res.json({ error: response.message });
-    });
-
-
-
-
-
-},
-
-echoes : function(req, res){
-    console.log("inside ectoes");
-   // console.log(req.session.user);
-  
-    var obj = {
-        userProfile : req.session.user[0],
-        userInterest : req.session.user[1],
-        userRating: req.session.user[2],
-        userEchoes: req. session.user[3]
-    }
-            if(req. session.user[3].length > 0){
-                
-                res.render("echoes", obj);
-
-            }else{
-                res.render("noTopic", obj);
+            } else {
+                console.log(500);
+                res.send({error: response.message});
             }
+
+            // thinking of posting all interest to cookie; pass it in to all the things
+            // tryhref ?id={{categoryID}}
+
+        })
+            .catch(function (err) {
+                res.json({error: response.message});
+            });
+
+    },
+
+    echoes: function (req, res) {
+        console.log("inside ectoes");
+        // console.log(req.session.user);
+
+        var obj = {
+            userProfile: req.session.user[0],
+            userInterest: req.session.user[1],
+            userRating: req.session.user[2],
+            userEchoes: req.session.user[3]
+        }
+        if (req.session.user[3].length > 0) {
+
+            res.render("echoes", obj);
+
+        } else {
+            res.render("noTopic", obj);
+        }
+    }
+
 }
 
+module.exports = signupLogin;
 
-}
-
-module.exports=signupLogin;
-
-/*    
+/*
 
 [ [ { userID: 2,
       userName: 'atrader100@gmail.com',
