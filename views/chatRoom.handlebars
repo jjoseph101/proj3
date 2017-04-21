@@ -1,13 +1,13 @@
 	<div class="row">
 
-  	
+
   			<div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="allChatContainer">
                 <div>
                     {{#each messages}}
                     <div>
-                        <button class="btn btn-default" onclick="openRateModal({{this.senderID}}, {{this.screenName}})" id="screenName">{{this.screenName}}</button>
-                        
+                        <button class="btn btn-default" onclick="openRateModal({{this.senderID}}, "{{this.screenName}}")" id="screenName">{{this.screenName}}</button>
+
                         <p>{{this.message}}</p>
 
                     </div>
@@ -17,13 +17,13 @@
   			</div>
                 </div>
                     <form action="/sendChat" method="POST">
-                    
+
                     <textarea  name="message"></textarea>
 
                     <input type ="hidden" name="topicID" value="{{topicID}}">
-      
+
                     <input type ="hidden" name="clientID" value="{{clientID}}">
-      
+
                     <button type="submit" class="btn btn-lg" id="sendChat" >SEND</button>
                      </form>
                     </div>
