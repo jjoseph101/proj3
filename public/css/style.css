@@ -6400,8 +6400,60 @@ button:focus,button:active {
   margin-top:300px;
 }
 
+.groupEchoesForm {
+  margin-top:-30px;
+}
+
+.btn-danger {
+  background:transparent;
+  border: solid 1px #282c37;
+  padding-right:30px;
+  padding-left:30px;
+  color:#282c37;
+  font-weight:300;
+}
+
+.btn-danger:hover {
+  background:#313541;
+  border:#313541;
+  color:white;
+  font-weight:300;
+}
+
+
 /* Sign Up Page Ends */
 
+
+
+
+
+/** Current Echoes and Replace Echoes Start **/
+
+    .currentEchoes {
+      margin-right:315px;
+      color:#282c37;
+    }
+
+    .replaceEchoes {
+      margin-right:315px;
+      color:#282c37;
+    }
+
+    #updateEchoesTwo {
+      margin-top:-50px;
+      margin-left:415px;
+    }
+
+/** Current Echoes and Replace Echoes End **/
+
+
+/** Create New Echoes **/
+
+  .createNewEchoes {
+    margin-left:36px;
+  }
+
+/** Create New Echoes **/
 
 
   /** MEDIA QUERIES for echo buttons STARTS **/
@@ -6596,6 +6648,44 @@ button:focus,button:active {
 
 
 
+/** @media QUERIES for current Echoes and Replace Echoes STARTS  **/
+
+  @media screen and (max-width:926px){
+
+    .currentEchoes {
+      font-size:24px;
+      position:relative;
+      left:-20px;
+    }
+
+    .replaceEchoes {
+      font-size:24px;
+      position:relative;
+      left:-20px;
+    }
+
+    .removeCategory {
+      position:relative;
+      float:right;
+    }
+
+  }
+
+
+  @media screen and (max-width:880px){
+
+    .currentEchoes {
+      font-size:20px;
+    }
+
+    .replaceEchoes {
+      font-size:20px;
+    }
+
+  }
+
+
+/** @media QUERIES for current Echoes and Replace Echoes END **/
 
 
 

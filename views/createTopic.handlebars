@@ -1,22 +1,22 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-  		 
-                    <h1>Create New Echoes</h1>
+      <div class="jumbotron">
+                    <h2 class="createNewEchoes">Create New Echoes</h2>
 
-     <form class="createForm" action="/createEchoes" method="POST">
-               
+                    <form class="createForm" action="/createEchoes" method="POST">
+
                     <div class="form-group">
                     <select data-placeholder="" class="form-control"  name="categoryID" style="width:350px;">
                         <option  value="">Select A Topic Category</option>
                         {{#each allCategory}}
 
                         <option value={{this.categoryID}}>{{this.categoryName}}</option>
-                        
+
 
                         {{/each}}
                     </select>
                      </div>
-                
+
                         <div class="form-group">
                         <input type="text" class="form-control" name="topicName" aria-describedby="emailHelp" placeholder="Topic Name"/>
                         </div>
@@ -24,8 +24,8 @@
                         <div class="form-group">
                         <textarea type="text" class="form-control" name="topicDescription" aria-describedby="emailHelp" placeholder="Topic Description"></textarea>
                         </div>
-                            
-                            <h2>Echoes Location Tag (Optional)</h2>
+
+                            <h2 class="EchoesLocation">Echoes Location Tag (Optional)</h2>
 
                         <div class="form-group">
                         <input type="text" class="form-control" name="topicCity" aria-describedby="emailHelp" placeholder="Topic City">
@@ -36,19 +36,16 @@
                         </div>
 
                         <div class="form-group">
-                        <input type="textt" class="form-control" name="topicPostalCode" placeholder="Topic Postal Code">
+                        <input type="text" class="form-control" name="topicPostalCode" placeholder="Topic Postal Code">
                         </div>
 
                         <div class="form-group">
                         <input type="text" class="form-control" name="topicCountry" placeholder="Topic Country">
                         </div>
 
-                    
-            <button type="submit" class="btn btn-default pull-right" id="findTopic">Create Echo</button>
+
+            <button type="submit" class="btn btn-danger pull-right" id="findTopic">Create Echo</button>
      </form>
  </div>
 </div>
-
-
-                    
-      
+</div>

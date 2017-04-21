@@ -3,9 +3,8 @@
 
   		{{#each topics}}
   			<div class="col-lg-6 col-md-6 col-sm-6">
-  				<div>
+  				<div class="jumbotron" id="joinJumbo">
             <div class="textGrouped">
-
               <h4>{{this.topicName}}</h4>
               <p>{{this.topicDescription}}
               <a href="" class="readMore">Read More</a>
@@ -13,15 +12,13 @@
              <form action="/startChat" method="POST">
 
             <input type ="hidden" name="topicID" value="{{this.topicID}}">
-            
-
 
             <button type="submit" class="btn btn-default">JOIN</button>
           </form>
 
 
               </p>
-              <div class="date">{{this.chatUpdatedAt}}</div>
+              <!-- <div class="date">{{this.chatUpdatedAt}}</div> -->
             </div>
 
   				</div>

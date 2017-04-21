@@ -1,10 +1,11 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-  		 
-                    <h1>Search For Echoes</h1>
+      <div class="jumbotron">
+
+                    <h2>Search For Echoes</h2>
 
      <form class="createForm" action="/searchEchoes" method="POST">
-               
+
                     <div class="form-group">
                         <label>Category*</label>
                     <select data-placeholder="" class="form-control"  name="categoryID" style="width:350px;">
@@ -12,20 +13,20 @@
                         {{#each allCategory}}
 
                         <option value={{this.categoryID}}>{{this.categoryName}}</option>
-                        
+
 
                         {{/each}}
                     </select>
                      </div>
-                
-       
+
+
                             <h2>Refine Echoes Search By Location (Optional)</h2>
-                        
+
                     <div class="form-group">
-                       
+
                     <select data-placeholder="" class="form-control"  name="searchBy" style="width:350px;">
                         <option  value="">Select a Category of Topic</option>
-                        
+
 
                         <option value="City">City</option>
 
@@ -34,9 +35,9 @@
                         <option value="PostalCode">Postal Code</option>
 
                         <option value="Country">Country</option>
-                        
 
-                    
+
+
                     </select>
                      </div>
 
@@ -60,12 +61,9 @@
                         <input type="text" class="form-control" name="topicCountry" placeholder="Topic Country">
                         </div>
 
-                    
+
             <button type="submit" class="btn btn-default pull-right" id="createEchoButton">Find Echo</button>
      </form>
+   </div>
  </div>
 </div>
-
-
-                    
-      
