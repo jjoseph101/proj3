@@ -4336,7 +4336,7 @@ a.badge:hover, a.badge:focus {
   margin-bottom:20px;/** Was orginially 30px **/
   color:;
   position:relative;
-  z-index:-10;
+  /* z-index:; */
   background-color:#f6f7fa;; }
   .jumbotron h1,
   .jumbotron .h1 {
@@ -5970,7 +5970,7 @@ button:focus,button:active {
   .dashboard {
     width:100%;
     height:238px;
-    background-color:#f6f7fa; 
+    background-color:#f6f7fa;
     /* background:blue; */
     margin-left:210px;
     margin-top:-855px;
