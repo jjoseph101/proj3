@@ -2,31 +2,40 @@
 
 
   			<div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="allChatContainer">
-                <div>
-                    {{#each messages}}
+					<div class="jumbotron" id="chatJumbo">
+            <div class="allChatContainer">
+              <div class="jumbotron" id="jumboChatBackground">
+								<div>
+                  {{#each messages}}
+										<div id="chatJumboColor">
+                      <button class="btn btn-primary" onclick='openRateModal({{this.senderID}}, "{{this.screenName}}")' id="screenName">{{this.screenName}}</button>
 
-                        <button class="btn btn-default" onclick='openRateModal({{this.senderID}}, "{{this.screenName}}")' id="screenName">{{this.screenName}}</button>
 
-
-                        <p>{{this.message}}</p>
+                      <p class="message">{{this.message}}</p>
 
                     </div>
                     {{/each}}
-                </div>
-  			<div id="chatHistory">
-  			</div>
-                </div>
-                    <form action="/sendChat" method="POST">
+									</div>
 
-                    <textarea  name="message"></textarea>
+  						<div id="chatHistory">
+  					</div>
+					</div>
+				</div>
+			</div>
 
-                    <input type ="hidden" name="topicID" value="{{topicID}}">
+							<div class="jumbotron" id="searchOptionJumbo">
+								<div class="col-lg-12">
+                  <form action="/sendChat" method="POST">
 
-                    <input type ="hidden" name="clientID" value="{{clientID}}">
+                    <textarea  name="message" class="typeSearch"></textarea>
 
-                    <button type="submit" class="btn btn-lg" id="sendChat" >SEND</button>
-                     </form>
-                    </div>
-  			</div>
-	</div>
+                    <input type ="hidden" class="form-control" name="topicID" value="{{topicID}}">
+
+                    <input type ="hidden" class="form-control" name="clientID" value="{{clientID}}">
+
+                    <button type="submit" class="btn btn-danger" id="sendChat">SEND</button>
+                    </form>
+									</div>
+							</div>
+          </div>
+				</div>
