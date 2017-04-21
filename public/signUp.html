@@ -1,667 +1,661 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @jjoseph101
+ Sign out
+ Watch 2
+  Star 0
+ Fork 0 jjoseph101/proj3
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Tree: 211d7f605b Find file Copy pathproj3/public/signUp.html
+211d7f6  2 hours ago
+@jjoseph101 jjoseph101 fixed captcha
+2 contributors @jjoseph101 @mrkevinsmithdesign
+RawBlameHistory     
+664 lines (638 sloc)  36 KB
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Starter Template for Bootstrap</title>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700,800" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="javascript/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
 
-    </head>
-
-  <body>
-
+<body>
     <div class=""></div>
-
     <div class="topBackground">
-      <center>
-        <img src="images/echoingWall.svg" class="logo">
-      </center>
+        <center>
+            <img src="images/echoingWall.svg" class="logo">
+        </center>
     </div>
-
-
-<div class="signUpBackground" style="height: 100%">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3"></div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-        <!-- <h1 style="color: white; text-align: center"> Sign Up </h1> -->
-
-          <form class="submitForm" id="moveToTop">
-
-
-            <div class="form-group">
-              <input name="exampleScreenName" type="text" class="form-control" id="exampleScreenName" placeholder="Screen Name">
-            </div>
-
-            <div class="form-group">
-              <input name="exampleInputEmail1" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-            </div>
-
-            <div class="form-group">
-              <input name="exampleInputPassword1" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-
-            <div class="form-group">
-              <input name="exampleInputPassword2" type="password" class="form-control" id="exampleInputPassword2" placeholder=" Validate Password">
-            </div>
-
-             <div class="form-group">
-              <input name="exampleInputPhone1" type="tel" class="form-control" id="exampleInputPhone1" placeholder=" Phone Number">
-            </div>
-
-            <div class="form-group">
-              <input name="examplePostalCode1" type="text" class="form-control" id="examplePostalCode1" placeholder=" Postal Code">
-            </div>
-
-            <div class="form-group">
-              <input name="exampleCountry1" type="text" class="form-control" id="exampleCountry1" placeholder=" Country">
-            </div>
-
-            <center><h2 style="color:white"> Select 10 Interests </h2></center>
-            <div class="form-group">
-              <div class="selectInterest"></div>
-              <label style="color:white" for="sel1">Select Interest #1:</label>
-              <select class="form-control" id="sel1">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel2">Select Interest #2:</label>
-              <select class="form-control" id="sel2">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel3">Select Interest #3:</label>
-              <select class="form-control" id="sel3">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel4">Select Interest #4:</label>
-              <select class="form-control" id="sel4">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel5">Select Interest #5:</label>
-              <select class="form-control" id="sel5">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel6">Select Interest #6:</label>
-              <select class="form-control" id="sel6">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel7">Select Interest #7:</label>
-              <select class="form-control" id="sel7">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel8">Select Interest #8:</label>
-              <select class="form-control" id="sel8">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel9">Select Interest #9:</label>
-              <select class="form-control" id="sel9">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label style="color:white" for="sel10">Select Interest #10:</label>
-              <select class="form-control" id="sel10">
-                <option value="1">Sport</option>
-                <option value="2">News</option>
-                <option value="3">Music</option>
-                <option value="4">Entertainment</option>
-                <option value="5">Advice</option>
-                <option value="6">Relationship</option>
-                <option value="7">Technology</option>
-                <option value="8">Gaming</option>
-                <option value="9">School</option>
-                <option value="10">Friends</option>
-                <option value="11">TV and Movies</option>
-                <option value="12">Health</option>
-                <option value="13">Business</option>
-                <option value="14">Travel</option>
-                <option value="15">Jobs</option>
-                <option value="16">Food</option>
-                <option value="17">Dating</option>
-                <option value="18">Male</option>
-                <option value="19">Female</option>
-                <option value="20">Books</option>
-                <option value="21">Animals</option>
-                <option value="22">Environment</option>
-                <option value="23">US Politics</option>
-                <option value="24">Wars</option>
-                <option value="25">Home</option>
-                <option value="26">Design</option>
-                <option value="27">Arts</option>
-                <option value="28">Crafts</option>
-                <option value="29">Marriage</option>
-                <option value="30">Clothing</option>
-                <option value="31">Shopping</option>
-                <option value="32">Gardening</option>
-                <option value="33">Cars</option>
-                <option value="34">Motorcycles</option>
-                <option value="35">Boats</option>
-                <option value="36">Guns</option>
-              </select>
-            </div>
-				<center><input type="submit" class = "btn btn-default" id="signUpButton" value="Submit"/></center>
-            </div>
-
-          </form>
-
-                  </div>
-                  </div>
-                            <center>
-
-
-
-                          </center>
+    <div class="signUpBackground" style="height: 100%">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h1 style="color: white; text-align: center"> Sign Up </h1>
+                    <form name="signupFormFields" class="submitForm" id="moveToTop">
+                        <div class="form-group">
+                            <input name="exampleScreenName" type="text" class="form-control" id="exampleScreenName" placeholder="Screen Name">
+                        </div>
+                        <div class="form-group">
+                            <input name="exampleInputEmail1" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input name="exampleInputPassword1" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input name="exampleInputPassword2" type="password" class="form-control" id="exampleInputPassword2" placeholder=" Validate Password">
+                        </div>
+                        <div class="form-group">
+                            <input name="exampleInputPhone1" type="tel" class="form-control" id="exampleInputPhone1" placeholder=" Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <input name="examplePostalCode1" type="text" class="form-control" id="examplePostalCode1" placeholder=" Postal Code">
+                        </div>
+                        <div class="form-group">
+                            <input name="exampleCountry1" type="text" class="form-control" id="exampleCountry1" placeholder=" Country">
+                        </div>
+                        <center>
+                            <h2 style="color:white"> Select 10 Interests </h2></center>
+                        <div class="form-group">
+                            <div class="selectInterest"></div>
+                            <label style="color:white" for="sel1">Select Interest #1:</label>
+                            <select class="form-control" id="sel1">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel2">Select Interest #2:</label>
+                            <select class="form-control" id="sel2">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel3">Select Interest #3:</label>
+                            <select class="form-control" id="sel3">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel4">Select Interest #4:</label>
+                            <select class="form-control" id="sel4">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel5">Select Interest #5:</label>
+                            <select class="form-control" id="sel5">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel6">Select Interest #6:</label>
+                            <select class="form-control" id="sel6">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel7">Select Interest #7:</label>
+                            <select class="form-control" id="sel7">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel8">Select Interest #8:</label>
+                            <select class="form-control" id="sel8">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel9">Select Interest #9:</label>
+                            <select class="form-control" id="sel9">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="sel10">Select Interest #10:</label>
+                            <select class="form-control" id="sel10">
+                                <option value="1">Sport</option>
+                                <option value="2">News</option>
+                                <option value="3">Music</option>
+                                <option value="4">Entertainment</option>
+                                <option value="5">Advice</option>
+                                <option value="6">Relationship</option>
+                                <option value="7">Technology</option>
+                                <option value="8">Gaming</option>
+                                <option value="9">School</option>
+                                <option value="10">Friends</option>
+                                <option value="11">TV and Movies</option>
+                                <option value="12">Health</option>
+                                <option value="13">Business</option>
+                                <option value="14">Travel</option>
+                                <option value="15">Jobs</option>
+                                <option value="16">Food</option>
+                                <option value="17">Dating</option>
+                                <option value="18">Male</option>
+                                <option value="19">Female</option>
+                                <option value="20">Books</option>
+                                <option value="21">Animals</option>
+                                <option value="22">Environment</option>
+                                <option value="23">US Politics</option>
+                                <option value="24">Wars</option>
+                                <option value="25">Home</option>
+                                <option value="26">Design</option>
+                                <option value="27">Arts</option>
+                                <option value="28">Crafts</option>
+                                <option value="29">Marriage</option>
+                                <option value="30">Clothing</option>
+                                <option value="31">Shopping</option>
+                                <option value="32">Gardening</option>
+                                <option value="33">Cars</option>
+                                <option value="34">Motorcycles</option>
+                                <option value="35">Boats</option>
+                                <option value="36">Guns</option>
+                            </select>
+                        </div>
+                        <center>
+                            <input type="submit" class="btn btn-default" id="signUpButton" value="Submit" />
+                        </center>
                 </div>
-                <dialog id="captchaMismatch">Your captcha entry does not match the numbers shown!</dialog>
-                <dialog id="passwordMismatch">Your passwords do not match!</dialog>
-                <dialog id="captchaPop">
-                	<form name="review" ACTION="#" METHOD="POST" id="captachCenter" onsubmit="return checkform(this);">
-		                  <font color="#ffc90d">Enter Code</font> <span id="txtCaptchaDiv" style="background-color:#ffc90d;color:#282c37;padding:5px"></span>
-		                  <input type="hidden" id="txtCaptcha" />
-		                  <input type="text" style="color:#282c37" name="txtInput" id="txtInput" size="15" />
-		                  <input type="submit" class = "btn btn-default" id="signUpButton2" value="Submit"/>
-<!-- 		                  <div class="extraSpace"></div>
-		                  <div id="signupResult"> -->
-		                  </div>
-                  	</form>
-                </dialog>
-
-                   <div class="col-lg-3 col-md-3 col-sm-3"></div>
-                </div>
-              </div>
+                </form>
             </div>
-          </div>
-
-            </body>
-              <script type="text/javascript">
-              	// function to
-              	//document.getElementById("captchaPop").showModal();
-              function checkform(theform){
-                console.log("Checkform function")
-              var why = "";
-
-              if(theform.txtInput.value == ""){
-              why += "- Security code should not be empty.\n";
-              }
-              if(theform.txtInput.value != ""){
-              if(ValidCaptcha(theform.txtInput.value) == false){
-              why += "- Security code did not match.\n";
-              }
-              }
-              if(why != ""){
-              document.getElementById("captchaMismatch").showModal();
-              return false;
-              };
-              };
-
-              //Generates the captcha function
-              var a = Math.ceil(Math.random() * 9)+ '';
-              var b = Math.ceil(Math.random() * 9)+ '';
-              var c = Math.ceil(Math.random() * 9)+ '';
-              var d = Math.ceil(Math.random() * 9)+ '';
-              var e = Math.ceil(Math.random() * 9)+ '';
-              console.log("Generate number")
-
-              var code = a + b + c + d + e;
-              document.getElementById("txtCaptcha").value = code;
-              document.getElementById("txtCaptchaDiv").innerHTML = code;
-
-              // Validate the Entered input aganist the generated security code function
-              function ValidCaptcha(returnedUser){
-              var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-              var str2 = removeSpaces(document.getElementById('txtInput').value);
-              if (str1 == str2){
-              	console.log("Captcha matches!!!")
-              	console.log(returnedUser);
-
-              return true;
-              }else{
-              return false;
-              }
-              }
-
-              // Remove the spaces from the entered and generated code
-              function removeSpaces(string){
-              return string.split(' ').join('');
-              }
-              </script>
-
-          </div>
         </div>
-      </div>
-
-
-
-
-
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-      </div>
+        <center>
+        </center>
     </div>
-  </div>
+    <dialog id="captchaMismatch">Your captcha entry does not match the numbers shown!</dialog>
+    <dialog id="passwordMismatch">Your passwords do not match!</dialog>
+    <dialog id="captchaPop">
+        <form name="review" ACTION="#" METHOD="POST" id="captachCenter" onsubmit="return checkform(this);">
+            <font color="#ffc90d">Enter Code</font> <span id="txtCaptchaDiv" style="background-color:#ffc90d;color:#282c37;padding:5px"></span>
+            <input type="hidden" id="txtCaptcha" />
+            <input type="text" style="color:#282c37" name="txtInput" id="txtInput" size="15" />
+            <input type="submit" class="btn btn-default" id="signUpButton2" value="Submit" />
+            <!--                          <div class="extraSpace"></div>
+                          <div id="signupResult"> -->
+            </div>
+        </form>
+    </dialog>
+    <dialog id="fieldNull">All fields are required.  Please answer all fields</dialog>
+    <dialog id="badEmail">Incorrect Email Format!  Please enter an email address with the '@'</dialog>
+    <div class="col-lg-3 col-md-3 col-sm-3"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript">
+// function to 
+//document.getElementById("captchaPop").showModal();
+function validateForm() {
+    var x = document.forms["signupFormFields"]["exampleInputEmail1"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        document.getElementById("badEmail").showModal();
+        return false;
+    } else {
+        document.getElementById("captchaPop").showModal();
+        return false;
+    }
+}
+var captchaChecker = false;
+function postShit(returnedUser) {
+    if (captchaChecker == true) {
+        $.post("/signup", returnedUser, function(data) {
+            console.log(data);
+            if (data.error) {
+                console.log("inside error")
+                $("#signupResult").html(data.error);
+            } else {
+                console.log("before echoesing")
+                window.location = data;
+            }
+        })
+        //return false;
+    } else {
+        return false;
+    }
+}
+function checkform(theform) {
+    console.log("Checkform function")
+    var why = "";
+    if (theform.txtInput.value == "") {
+        why += "- Security code should not be empty.\n";
+    }
+    if (theform.txtInput.value != "") {
+        if (ValidCaptcha(theform.txtInput.value) == false) {
+            why += "- Security code did not match.\n";
+        }
+    }
+    if (why != "") {
+        if (captchaChecker==false) {
+        document.getElementById("captchaMismatch").showModal();
+        };
+        return false;
+    };
+};
+//Generates the captcha function
+var a = Math.ceil(Math.random() * 9) + '';
+var b = Math.ceil(Math.random() * 9) + '';
+var c = Math.ceil(Math.random() * 9) + '';
+var d = Math.ceil(Math.random() * 9) + '';
+var e = Math.ceil(Math.random() * 9) + '';
+console.log("Generate number")
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("txtCaptchaDiv").innerHTML = code;
+// Validate the Entered input aganist the generated security code function
+function ValidCaptcha() {
+    var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+    var str2 = removeSpaces(document.getElementById('txtInput').value);
+    if (str1 == str2) {
+        console.log("Captcha matches!!!")
+        console.log(returnedUser);
+        captchaChecker = true;
+        postShit(returnedUser);
+        return false;
+    } else {
+        return false;
+    }
+}
+// Remove the spaces from the entered and generated code
+function removeSpaces(string) {
+    return string.split(' ').join('');
+}
+</script>
 </div>
-            <footer>
-              <div class="text-center">
-                <p class="footerText">&copy; Echoing Wall 2017</p>
-              </div>
-            </footer>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+    <div class="text-center">
+        <p class="footerText">&copy; Echoing Wall 2017</p>
+    </div>
+</footer>
+<script>
+var returnedUser = []
+$("#exampleInputPassword2").on("keyup", function() {
+    console.log("password keyup");
+    // original password input
+    var password1 = $("#exampleInputPassword1").val().trim();
+    // retype passwword input
+    var password2 = $("#exampleInputPassword2").val().trim();
+    // if the two strings match
+    if (password1 != password2) {
+        //show the user that the passwords matched
+        document.getElementById("passwordMismatch").showModal();
+    }
+    // if the two strings are different
+});
+$("#signUpButton").on("click", function() {
+    validateForm ();
+    if ($("#exampleScreenName").val().trim() == "" || $("#exampleInputEmail1").val().trim() == "" || $("#exampleInputPassword1").val().trim() == "" || $("#exampleInputPhone1").val().trim() == "" || $("#examplePostalCode1").val().trim() == "" || $("#exampleCountry1").val().trim() == "") {
+        document.getElementById("fieldNull").showModal();
+        return false;
+    }
+    console.log("inside signup")
+    var userInterests = [];
+    for (i = 1; i < 11; i++) {
+        userInterests.push($("#sel" + [i]).val().trim());
+        console.log([i]);
+    }
+    // $.each($("input[name='interest']:checked"), function(){
+    //     userInterests.push($(this).val());
+    console.log("Pressed Submit");
+    console.log("User Name: " + $("#exampleInputEmail1").val().trim());
+    console.log("The selected interests are: " + userInterests.join(", "));
+    returnedUser = {
+        userName: $("#exampleInputEmail1").val().trim(),
+        password: $("#exampleInputPassword1").val().trim(),
+        screenName: $("#exampleScreenName").val().trim(),
+        email: $("#exampleInputEmail1").val().trim(),
+        phone: $("#exampleInputPhone1").val().trim(),
+        postalCode: $("#examplePostalCode1").val().trim(),
+        country: $("#exampleCountry1").val().trim(),
+        interests: userInterests
+    }
+    console.log(returnedUser);
+    // document.getElementById("captchaPop").showModal();
+    return false
+});
+</script>
+</body>
 
-    <script>
-    	var returnedUser =[]
-		$("#exampleInputPassword2").on("keyup", function(){
-			console.log("password keyup");
-			// original password input
-			var password1 = $("#exampleInputPassword1").val().trim();
-			// retype passwword input
-			var password2 = $("#exampleInputPassword2").val().trim();
-			// if the two strings match
-			if(password1 != password2){
-				//show the user that the passwords matched
-				 document.getElementById("passwordMismatch").showModal();
-			}
-			// if the two strings are different
-		});
-
-
-        $("#signUpButton").on("click", function() {
-
-            console.log("inside signup")
-            var userInterests = [];
-            for (i=1; i<11; i++) {
-              userInterests.push($("#sel"+[i]).val().trim());
-              console.log([i]);
-            }
-
-            // $.each($("input[name='interest']:checked"), function(){
-            //     userInterests.push($(this).val());
-
-            console.log("Pressed Submit");
-            console.log ("User Name: " + $("#exampleInputEmail1").val().trim());
-
-            console.log("The selected interests are: "+userInterests.join(", "));
-
-
-            returnedUser = {
-                userName: $("#exampleInputEmail1").val().trim(),
-                password: $("#exampleInputPassword1").val().trim(),
-                screenName: $("#exampleScreenName").val().trim(),
-                email: $("#exampleInputEmail1").val().trim(),
-                phone: $("#exampleInputPhone1").val().trim(),
-                postalCode: $("#examplePostalCode1").val().trim(),
-                country: $("#exampleCountry1").val().trim(),
-                interests: userInterests
-
-            }
-            console.log(returnedUser);
-            document.getElementById("captchaPop").showModal();
-            $.post("/signup", returnedUser, function(data) {
-	                console.log(data);
-	                if (data.error) {
-	                    console.log("inside error")
-	                    $("#signupResult").html(data.error);
-	                } else {
-	                    console.log("before echoesing")
-	                    window.location = data;
-
-	                }
-            	})
-            return false
-            });
-
-    </script>
-
-
-
-  </body>
 </html>
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
