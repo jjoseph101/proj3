@@ -514,6 +514,7 @@ function postShit(returnedUser) {
 
             }
         })
+        //return false;
     } else {
         return false;
     }
@@ -559,7 +560,7 @@ function ValidCaptcha() {
         captchaChecker = true;
         postShit(returnedUser);
 
-        return true;
+        return false;
     } else {
         return false;
     }
