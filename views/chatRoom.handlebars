@@ -6,9 +6,8 @@
                 <div>
                     {{#each messages}}
                     <div>
-                        <button class="btn btn-default" id="screenName">{{this.screenName}}</button>
-                         <input type="hidden" name="receiverName" id="receiverName" value="{{this.screenName}}"/>
-                        <input type="hidden" name="receiverID" id="receiverID" value="{{this.senderID}}"/>
+                        <button class="btn btn-default" onclick="openRateModal({{this.senderID}}, {{this.screenName}})" id="screenName">{{this.screenName}}</button>
+                        
                         <p>{{this.message}}</p>
 
                     </div>

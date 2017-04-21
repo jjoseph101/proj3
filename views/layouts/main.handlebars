@@ -56,7 +56,7 @@ var ConnectionID;
  function appendChat(senderID, sender, message){
 
     var container = $('#chatHistory');
-    var chatContainer = '<div><button class="btn btn-default" id="screenName">'+ sender + '</button><input type="hidden" name="receiverName" id="receiverName" value="'+ sender + '"/><input type="hidden" name="receiverID" id="receiverID" value="'+ senderID + '"/><p>'+ message + '</p></div>';
+    var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ',' +  sender + ')" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>';
 
     container.append(chatContainer);
 
@@ -67,13 +67,12 @@ var ConnectionID;
 
      //    })
 
-$("#screenName").on("click", function(){
+function openRateModal(senderID, sender){
 
 //open modal
 
 
-})
-
+}
 $("#likeButton").on("click", function(){
 
   var obj = {
@@ -257,7 +256,7 @@ $("#trollButton").on("click", function(){
     <div id="sideNav">
       <ul class="nav">
          {{#each userInterest}}
-        <li><form class="formMargin" action="/topicbycategory/{{this.categoryID}}" method="POST" ><button class="sideButton">{{this.categoryName}}</button></form></li>
+        <li><form class="formMargin" action="/topicbycategory/{{this.categoryID}}" method="POST" ><button class="sideButtons">{{this.categoryName}}</button></form></li>
         {{/each}}
         
        </ul>
