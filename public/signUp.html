@@ -42,31 +42,31 @@
 
 
             <div class="form-group">
-              <input type="text" class="form-control" id="exampleScreenName" placeholder="Screen Name">
+              <input name="exampleScreenName" type="text" class="form-control" id="exampleScreenName" placeholder="Screen Name">
             </div>
 
             <div class="form-group">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+              <input name="exampleInputEmail1" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
             </div>
 
             <div class="form-group">
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input name="exampleInputPassword1" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
 
             <div class="form-group">
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder=" Validate Password">
+              <input name="exampleInputPassword2" type="password" class="form-control" id="exampleInputPassword2" placeholder=" Validate Password">
             </div>
 
              <div class="form-group">
-              <input type="tel" class="form-control" id="exampleInputPhone1" placeholder=" Phone Number">
+              <input name="exampleInputPhone1" type="tel" class="form-control" id="exampleInputPhone1" placeholder=" Phone Number">
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="examplePostalCode1" placeholder=" Postal Code">
+              <input name="examplePostalCode1" type="text" class="form-control" id="examplePostalCode1" placeholder=" Postal Code">
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="exampleCountry1" placeholder=" Country">
+              <input name="exampleCountry1" type="text" class="form-control" id="exampleCountry1" placeholder=" Country">
             </div>
 
             <center><h2 style="color:white"> Select 10 Interests </h2></center>
@@ -490,7 +490,7 @@
                 <option value="36">Guns</option>
               </select>
             </div>
-
+				<center><input type="submit" class = "btn btn-default" id="signUpButton" value="Submit"/></center>
             </div>
 
           </form>
@@ -498,21 +498,24 @@
                   </div>
                   </div>
                             <center>
-	                              <form name="review" ACTION="#" METHOD="POST" id="captachCenter" onsubmit="return checkform(this);">
-	                              <font color="#ffc90d">Enter Code</font> <span id="txtCaptchaDiv" style="background-color:#ffc90d;color:#282c37;padding:5px"></span>
-	                              <input type="hidden" id="txtCaptcha" />
-	                              <input type="text" style="color:#282c37" name="txtInput" id="txtInput" size="15" />
-	   
-	                              <div class="extraSpace"></div>
-	                              <div id="signupResult">
-	                              </div>
-	                              </form>
-                            <input type="submit" class = "btn btn-default" id="signUpButton" value="Submit"/>
+	                              
+                            
 
                           </center>
                 </div>
                 <dialog id="captchaMismatch">Your captcha entry does not match the numbers shown!</dialog>
                 <dialog id="passwordMismatch">Your passwords do not match!</dialog>
+                <dialog id="captchaPop">
+                	<form name="review" ACTION="#" METHOD="POST" id="captachCenter" onsubmit="return checkform(this);">
+		                  <font color="#ffc90d">Enter Code</font> <span id="txtCaptchaDiv" style="background-color:#ffc90d;color:#282c37;padding:5px"></span>
+		                  <input type="hidden" id="txtCaptcha" />
+		                  <input type="text" style="color:#282c37" name="txtInput" id="txtInput" size="15" />
+		                  <input type="submit" class = "btn btn-default" id="signUpButton2" value="Submit"/>
+<!-- 		                  <div class="extraSpace"></div>
+		                  <div id="signupResult"> -->
+		                  </div>
+                  	</form>
+                </dialog>
 
                    <div class="col-lg-3 col-md-3 col-sm-3"></div>
                 </div>
@@ -523,7 +526,7 @@
             </body>
               <script type="text/javascript">
               	// function to 
-
+              	//document.getElementById("captchaPop").showModal();
               function checkform(theform){
                 console.log("Checkform function")
               var why = "";
@@ -555,10 +558,13 @@
               document.getElementById("txtCaptchaDiv").innerHTML = code;
 
               // Validate the Entered input aganist the generated security code function
-              function ValidCaptcha(){
+              function ValidCaptcha(returnedUser){
               var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
               var str2 = removeSpaces(document.getElementById('txtInput').value);
               if (str1 == str2){
+              	console.log("Captcha matches!!!")
+              	console.log(returnedUser);
+              	
               return true;
               }else{
               return false;
@@ -592,6 +598,7 @@
             </footer>
 
     <script>
+    	var returnedUser =[]
 		$("#exampleInputPassword2").on("keyup", function(){
 			console.log("password keyup");
 			// original password input
@@ -606,7 +613,9 @@
 			// if the two strings are different
 		});
 
+
         $("#signUpButton").on("click", function() {
+        	
             console.log("inside signup")
             var userInterests = [];
             for (i=1; i<11; i++) {
@@ -623,7 +632,7 @@
             console.log("The selected interests are: "+userInterests.join(", "));
             
 
-            var returnedUser = {
+            returnedUser = {
                 userName: $("#exampleInputEmail1").val().trim(),
                 password: $("#exampleInputPassword1").val().trim(),
                 screenName: $("#exampleScreenName").val().trim(),
@@ -635,17 +644,20 @@
 
             }
             console.log(returnedUser);
+            document.getElementById("captchaPop").showModal();
             $.post("/signup", returnedUser, function(data) {
-                console.log(data);
-                if (data.error) {
-                    console.log("inside error")
-                    $("#signupResult").html(data.error);
-                } else {
-                    console.log("before echoesing")
-                    window.location = data;
+	                console.log(data);
+	                if (data.error) {
+	                    console.log("inside error")
+	                    $("#signupResult").html(data.error);
+	                } else {
+	                    console.log("before echoesing")
+	                    window.location = data;
 
-                }
-            })});
+	                }
+            	})
+            return false
+            });
 
     </script>
 
