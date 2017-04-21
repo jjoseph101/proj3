@@ -2,17 +2,21 @@
 
   	
   			<div class="col-lg-12 col-md-12 col-sm-12">
-
+                <div class="allChatContainer">
                 <div>
                     {{#each messages}}
                     <div>
-                        <p>{{this.screenName}}</p>
+                        <button class="btn btn-default" id="screenName">{{this.screenName}}</button>
+                         <input type="hidden" name="receiverName" id="receiverName" value="{{this.screenName}}"/>
+                        <input type="hidden" name="receiverID" id="receiverID" value="{{this.senderID}}"/>
                         <p>{{this.message}}</p>
+
                     </div>
                     {{/each}}
                 </div>
   			<div id="chatHistory">
   			</div>
+                </div>
                     <form action="/sendChat" method="POST">
                     
                     <textarea  name="message"></textarea>

@@ -25,13 +25,13 @@
 
 
 </head>
-
+	
 <body>
 
   <script>
 
 var ConnectionID;
-
+ 
  // $(function () {
 
             	var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
@@ -40,8 +40,8 @@ var ConnectionID;
             	contosoChatHubProxy.on('ReceiveMessage', function (senderID, sender, message) {
 
 		          // buildChatResponse (sender, message);
-              appendChat(sender, message);
-
+              appendChat(senderID, sender, message);
+                       
            	 });
 
                 connection.start().done(function(){
@@ -49,14 +49,14 @@ var ConnectionID;
                 var returnedUser = {ConnectionID : connection.id};
 
                 $.post("/setConnectionID", returnedUser);
-
+                
 
 
             });
- function appendChat(sender, message){
+ function appendChat(senderID, sender, message){
 
     var container = $('#chatHistory');
-    var chatContainer = '<div><p>'+ sender + '</p><p>'+ message + '</p></div>';
+    var chatContainer = '<div><button class="btn btn-default" id="screenName">'+ sender + '</button><input type="hidden" name="receiverName" id="receiverName" value="'+ sender + '"/><input type="hidden" name="receiverID" id="receiverID" value="'+ senderID + '"/><p>'+ message + '</p></div>';
 
     container.append(chatContainer);
 
@@ -67,7 +67,36 @@ var ConnectionID;
 
      //    })
 
+$("#screenName").on("click", function(){
 
+//open modal
+
+
+})
+
+$("#likeButton").on("click", function(){
+
+  var obj = {
+    {
+    senderUserID: $("#receiverID").val().trim(),
+    troll: false
+}
+     $.post("/like", obj);
+
+  }
+})
+
+$("#trollButton").on("click", function(){
+
+  var obj = {
+    {
+    senderUserID: $("#receiverID").val().trim(),
+    troll: true
+}
+     $.post("/troll", obj);
+
+  }
+})
 
 
   </script>
@@ -87,8 +116,8 @@ var ConnectionID;
       <!-- SVG hover for upload image -->
       <div class="uploadHover">
 
-
-
+     
+    
       <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       	 viewBox="0 0 179.5 229" style="enable-background:new 0 0 179.5 229;" xml:space="preserve">
@@ -217,9 +246,9 @@ var ConnectionID;
         <p class="name">{{this.screenName}}</p>
         {{/each}}
       <div class="updateBackgroundColor">
-
+        
         <a class="btn btn-default" id="updateEchoesButton" href="/updateNav">Update Echoes</a>
-
+   
     </div>
     </div>
     </center>
@@ -228,9 +257,9 @@ var ConnectionID;
     <div id="sideNav">
       <ul class="nav">
          {{#each userInterest}}
-        <li><form action="/topicbycategory/{{this.categoryID}}" class="formMargin" method="POST"><button class="sideButtons">{{this.categoryName}}</button></form></li>
+        <li><form class="formMargin" action="/topicbycategory/{{this.categoryID}}" method="POST" ><button class="sideButton">{{this.categoryName}}</button></form></li>
         {{/each}}
-
+        
        </ul>
   </div>
 
@@ -262,47 +291,6 @@ var ConnectionID;
         </div>
       </div>
 
-  {{!--<div class="create">
-
-  <form class="createForm">
-
-    <div class="form-group">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
-    </div>
-
-    <div class="form-group">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title">
-    </div>
-
-
-    <div class="form-group">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category">
-    </div>
-
-    <div class="form-group">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="City">
-    </div>
-
-    <div class="form-group">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="State/Province">
-    </div>
-
-    <div class="form-group">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Postal Code">
-    </div>
-
-    <div class="form-group">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Country">
-    </div>
-
-
-    <div class="form-group">
-      <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="Echo"></textarea>
-    </div>
-
-<button type="submit" class="btn btn-default pull-right" id="createEchoButton">Create Echo</button>
-</form>
-</div>--}}
 </div>
 </div>
 </div>
@@ -315,11 +303,6 @@ var ConnectionID;
   	{{{body}}}
   	</div>
 
-          <!-- <label class="custom-control custom-radio">
-            <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Sports</span>
-          </label> -->
 
   </body>
 </html>

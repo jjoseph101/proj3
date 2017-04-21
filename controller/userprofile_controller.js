@@ -46,7 +46,7 @@ rp(option2)
 
         if(allCategory.status == 200){
 
-
+                console.log("all category 200");
 
        var allTheCategory = allCategory.data[0];
 
@@ -54,11 +54,11 @@ rp(option2)
             .then(function (response) {
                
                          
-                   // console.log(response);
+                   console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
 
-                       // console.log(200 + "for interest");
+                       console.log(200 + "for interest");
                           
                           var obj = {
 
@@ -68,7 +68,7 @@ rp(option2)
                           }
                          
                         // console.log(obj);
-                         if(response.data[0].lenght > 0){
+                         if(response.data[0].length > 0){
 
                          res.render('updateNav', obj);
                          }else{
@@ -78,7 +78,7 @@ rp(option2)
                  
                      
                      }else{
-                        // console.log(500 + "for interest");
+                        console.log(500 + "for interest");
                         res.redirect("/errorPage")
                      }
 
@@ -89,7 +89,7 @@ rp(option2)
 
         }else{
 
-             console.log(500 + "for iall");
+             console.log(500 + "for i all");
                  res.redirect("/errorPage")
         }
 

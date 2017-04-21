@@ -129,10 +129,10 @@ var options = {
         rp(options)
             .then(function (response) {
              
-                    //console.log(response);
+                    console.log(response);
                 // POST succeeded... 
                       if(response.status == 200){
-
+                        console.log(200);
                         var obj = {
                             userProfile : req.session.user[0],
                             userInterest : req.session.user[1],
@@ -141,9 +141,11 @@ var options = {
 
 
                         }
-                            if (response.data[0].length > 0){
+                            if (response.data.length > 0){
+                                console.log("if >")
                                 res.render("topicByCategory", obj);
                         }else{
+                            console.log("else")
                                  res.render("noTopic", obj);
                         }
                       //res.render("topicByCategory", obj );
@@ -164,6 +166,8 @@ var options = {
 
     })
     .catch(function (err) {
+         console.log("catch")
+         console.log(err.message)
       res.redirect("/errorPage")
     });
 
@@ -191,12 +195,6 @@ var options = {
                         console.log("popular");
                       
                        
-                        for(var i=0; i<response.data[0].length; i++){
-
-                            response.data[0][i].connectionID = req.session.user[0][0].ConnectionID;
-
-
-                        }
                           console.log(response.data[0]);
 
                         var obj = {
@@ -208,7 +206,7 @@ var options = {
                         
                       
                          //res.render("echoes", obj);
-                        if (response.data[0].length > 0){
+                        if (response.data.length > 0){
                                 res.render("topicByPopularity", obj );
                         }else{
                                  res.render("noTopic", obj);
