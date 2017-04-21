@@ -30,7 +30,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3"></div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <h1 style="color: white; text-align: center"> Sign Up </h1>
-                    <form class="submitForm" id="moveToTop">
+                    <form name="signupFormFields" class="submitForm" id="moveToTop">
                         <div class="form-group">
                             <input name="exampleScreenName" type="text" class="form-control" id="exampleScreenName" placeholder="Screen Name">
                         </div>
@@ -499,6 +499,19 @@
 <script type="text/javascript">
 // function to 
 //document.getElementById("captchaPop").showModal();
+function validateForm() {
+    var x = document.forms["signupFormFields"]["exampleInputEmail1"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        document.getElementById("badEmail").showModal();
+        return false;
+    } else {
+    	document.getElementById("captchaPop").showModal();
+    	return false;
+    }
+}
+
 var captchaChecker = false;
 
 function postShit(returnedUser) {
@@ -562,6 +575,7 @@ function ValidCaptcha() {
 
         return false;
     } else {
+
         return false;
     }
 }
@@ -602,6 +616,7 @@ $("#exampleInputPassword2").on("keyup", function() {
 
 
 $("#signUpButton").on("click", function() {
+	validateForm ();
 
 	if ($("#exampleScreenName").val().trim() == "" || $("#exampleInputEmail1").val().trim() == "" || $("#exampleInputPassword1").val().trim() == "" || $("#exampleInputPhone1").val().trim() == "" || $("#examplePostalCode1").val().trim() == "" || $("#exampleCountry1").val().trim() == "") {
 		document.getElementById("fieldNull").showModal();
@@ -636,7 +651,7 @@ $("#signUpButton").on("click", function() {
 
     }
     console.log(returnedUser);
-    document.getElementById("captchaPop").showModal();
+    // document.getElementById("captchaPop").showModal();
     return false
 
 });
