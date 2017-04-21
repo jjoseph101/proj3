@@ -5867,10 +5867,6 @@ body {
   /* max-width:1430px; */
 }
 
-
-
-
-
 button:focus,button:active {
    outline: none !important;
 }
@@ -5896,8 +5892,6 @@ button:focus,button:active {
   right:0px;
 }
 
-
-
 .topNavLinks {
   list-style:none;
   display:inline-block;
@@ -5913,8 +5907,6 @@ button:focus,button:active {
 }
 
 
-
-
 .topNavLinks a:hover {
   color:#ffc90d;
   border-bottom:2px solid #ffc90d;
@@ -5927,16 +5919,16 @@ button:focus,button:active {
 
 .updateBackgroundColor {
   background-color:#282c37;
-  top:269px;
+  top:297px;
   position:absolute;
   /* position:absolute;
   top:-50px; */
-  height:60px;
+  height:67px;
   width:210px;
 }
 
 #updateEchoesButton {
-  margin-top:14px;
+  margin-top:17px;
   font-weight:200;
   font-family: 'Montserrat', sans-serif;
 }
@@ -5952,7 +5944,7 @@ button:focus,button:active {
 
 .welcomeBack {
   width: 210px;
-  height:270px;
+  height:305px;
   background:#313541;
   margin-top:60px;
   border-bottom: 1px solid #282c37;
@@ -5978,10 +5970,10 @@ button:focus,button:active {
   .dashboard {
     width:100%;
     height:238px;
-    /* background-color:#f6f7fa; */
-    background:blue;
+    background-color:#f6f7fa; 
+    /* background:blue; */
     margin-left:210px;
-    margin-top:-1045px;
+    margin-top:-855px;
     /* position:relative;
     top:-20px; */
   }
@@ -6112,7 +6104,6 @@ button:focus,button:active {
     position:relative;
     left:-110px;
     top:-5px;
-
   }
 
   .cell.is-empty {
@@ -6361,7 +6352,7 @@ button:focus,button:active {
 		  background:#313541;
 		  display: block;
 		  font-size: 14px;
-		  padding: 15px 5px 15px 15px;
+		  padding: 5px 5px 15px 15px;
 		  cursor: pointer;
 		  font-weight:;
 		  border-bottom: 1px solid #282c37;
@@ -6379,6 +6370,17 @@ button:focus,button:active {
 		#sideNav .nav > li:hover {
 			border-left: 6px solid #896c1a;
 		}
+
+    .sideButtons {
+      background:transparent;
+      border:none;
+      margin-top:0px;
+
+    }
+
+    .formMargin {
+      margin-top:10px;
+    }
 
 
 
@@ -8142,47 +8144,6 @@ button:focus,button:active {
 
   }
 
-
-  @media screen and (max-width:668px){
-
-      #dashboardActivityFour {
-
-        width:623px;
-        margin-top:12px;
-      }
-
-    }
-
-
-
-  @media screen and (max-width:668px){
-
-      #dashboardActivityFour {
-          width:623px;
-          margin-top:12px;
-        }
-
-      }
-
-  @media screen and (max-width:668px){
-
-    #dashboardActivityFour {
-      display:block;
-      width:623px;
-      /* margin-top:12px; */
-    }
-
-  }
-
-  @media screen and (max-width:668px){
-
-    #dashboardActivityFour {
-      width:622px;
-      margin-top:12px;
-    }
-
-  }
-
   @media screen and (max-width:667px){
 
     #dashboardActivityFour {
@@ -8405,7 +8366,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:594px;
-      /* margin-top:15px; */
+      margin-top:15px;
     }
 
   }
@@ -8486,7 +8447,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:584px;
-      /* margin-top:18px; */
+      margin-top:18px;
     }
 
   }
@@ -8655,7 +8616,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:564px;
-      /* margin-top:23px; */
+      margin-top:23px;
     }
 
   }
@@ -8736,6 +8697,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:554px;
+      margin-top:26px;
     }
 
   }
@@ -8825,7 +8787,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:544px;
-
+      margin-top:;
     }
 
   }
@@ -9005,6 +8967,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:524px;
+      margin-top:30px;
 
     }
 
@@ -9185,7 +9148,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:504px;
-
+      margin-top:32px;
     }
 
   }
@@ -9275,6 +9238,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:494px;
+      margin-top:35px;
 
     }
 
@@ -9457,6 +9421,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:474px;
+      margin-top:38px;
 
     }
 
@@ -9650,7 +9615,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:454px;
-
+      margin-top:40px;
     }
 
   }
@@ -9749,6 +9714,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:444px;
+      margin-top:42px;
 
     }
 
@@ -9947,7 +9913,7 @@ button:focus,button:active {
 
     #dashboardActivityFour {
       width:424px;
-
+      margin-top:46px;
     }
 
   }
@@ -10002,7 +9968,7 @@ button:focus,button:active {
     #dashboardActivityFive {
       width:419px;
       display:block;
-      /* margin-top:10px; */
+      margin-top:10px;
       margin-left:-21px;
 
 
@@ -10125,6 +10091,7 @@ button:focus,button:active {
 
     #dashboardActivityFive {
       width:405px;
+      margin-top:13px;
     }
 
   }
@@ -10205,6 +10172,7 @@ button:focus,button:active {
 
     #dashboardActivityFive {
       width:395px;
+      margin-top:15px;
     }
 
   }
@@ -10285,6 +10253,7 @@ button:focus,button:active {
 
     #dashboardActivityFive {
       width:385px;
+      margin-top:18px;
     }
 
   }
@@ -10366,6 +10335,7 @@ button:focus,button:active {
 
     #dashboardActivityFive {
       width:375px;
+      margin-top:20px;
     }
 
   }
@@ -10446,6 +10416,7 @@ button:focus,button:active {
 
     #dashboardActivityFive {
       width:365px;
+      margin-top:22px;
     }
 
   }
@@ -10526,6 +10497,7 @@ button:focus,button:active {
 
     #dashboardActivityFive {
       width:355px;
+      margin-top:26px;
     }
 
   }
