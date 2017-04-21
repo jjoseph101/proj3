@@ -546,7 +546,9 @@ function checkform(theform) {
         }
     }
     if (why != "") {
+        if (captchaChecker==false) {
         document.getElementById("captchaMismatch").showModal();
+        };
         return false;
     };
 };
