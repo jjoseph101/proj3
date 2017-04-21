@@ -53,16 +53,19 @@ var ConnectionID;
 
 
             });
+
  function appendChat(senderID, sender, message){
 
     var container = $('#chatHistory');
     
 		
-		 var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ', "' + sender + '")" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>'; 
+		 var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>'; 
 
-		 {{!--var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(""' + senderID + ', ' + sender + '")" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>';--}}
+		 // var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(""' + senderID + ', ' + sender + '")" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>';
 
-		 		 var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ', "' + sender + '")" id="screenName">'+ sender + '</button><p>'+ message + '</p></div>'; 
+		 //var chatContainer = '<div><button class="btn btn-default" onclick="openRateModal(' + senderID + ', '' + sender + '')" id="screenName">' + sender + '</button><p>' + message + '</p></div>';
+     console.log("Running appendChat function...")
+     console.log(chatContainer) ;
 
 
 
