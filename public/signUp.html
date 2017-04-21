@@ -488,6 +488,8 @@
             </div>
         </form>
     </dialog>
+    <dialog id="fieldNull">All fields are required.  Please answer all fields</dialog>
+    <dialog id="badEmail">Incorrect Email Format!  Please enter an email address with the '@'</dialog>
     <div class="col-lg-3 col-md-3 col-sm-3"></div>
     </div>
     </div>
@@ -600,7 +602,10 @@ $("#exampleInputPassword2").on("keyup", function() {
 
 $("#signUpButton").on("click", function() {
 
-
+	if ($("#exampleScreenName").val().trim() == "" || $("#exampleInputEmail1").val().trim() == "" || $("#exampleInputPassword1").val().trim() == "" || $("#exampleInputPhone1").val().trim() == "" || $("#examplePostalCode1").val().trim() == "" || $("#exampleCountry1").val().trim() == "") {
+		document.getElementById("fieldNull").showModal();
+		return false;
+	}
 
     console.log("inside signup")
     var userInterests = [];
