@@ -127,42 +127,42 @@ var options = {
     body: chat,
     json: true // Automatically stringifies the body to JSON 
 };
- 
-        rp(options).then(function (response) {
+ rp(options);
+    //     rp(options).then(function (response) {
 
-                   console.log(response);
-                // POST succeeded... 
-                      if(response.status == 200){
+    //                console.log(response);
+    //             // POST succeeded... 
+    //                   if(response.status == 200){
 
                     
 
-                        console.log(200);
-                        // console.log(response.data[0]);
+    //                     console.log(200);
+    //                     // console.log(response.data[0]);
                         
-                        // var obj = {
-                        //       userProfile : req.session.user[0],
-                        //     userInterest : req.session.user[1],
-                        //     userRating: req.session.user[2],
-                        //     messages: response.data[0],
-                        //     topicID: req.body.topicID,
-                        //     clientID: req.body.clientID
-                        // }
+    //                     // var obj = {
+    //                     //       userProfile : req.session.user[0],
+    //                     //     userInterest : req.session.user[1],
+    //                     //     userRating: req.session.user[2],
+    //                     //     messages: response.data[0],
+    //                     //     topicID: req.body.topicID,
+    //                     //     clientID: req.body.clientID
+    //                     // }
                        
-                        //     res.render("chatRoom", obj);
-                        res.redirect("/startChat1");
-
+    //                     //     res.render("chatRoom", obj);
+    //                     // res.sendStatus(200);
+    //                     res.redirect("/startChat1")
                      
                      
-                     }else{
-                         console.log(500);
-                         res.redirect("errorPage");
-                     }
+    //                  }else{
+    //                      console.log(500);
+    //                      res.redirect("errorPage");
+    //                  }
 
 
-    })
-    .catch(function (err) {
-         res.redirect("errorPage");
-    });
+    // })
+    // .catch(function (err) {
+    //      res.redirect("errorPage");
+    // });
 
 
 }
