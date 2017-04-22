@@ -77,7 +77,10 @@ var options = {
                             userRating: req.session.user[2],
                             messages: response.data[0],
                             topicID: topicId,
-                            clientID: req.session.user[0][0].ConnectionID
+                            clientID: req.session.user[0][0].ConnectionID,
+                            userID: req.session.user[0][0].userID,
+                            screenName: req.session.user[0][0].screenName
+                            
                         }
                        
                             res.render("chatRoom", obj);
@@ -127,42 +130,40 @@ var options = {
     body: chat,
     json: true // Automatically stringifies the body to JSON 
 };
- rp(options);
-    //     rp(options).then(function (response) {
+ 
+rp(options).then(function (response) {
 
-    //                console.log(response);
-    //             // POST succeeded... 
-    //                   if(response.status == 200){
-
-                    
-
-    //                     console.log(200);
-    //                     // console.log(response.data[0]);
-                        
-    //                     // var obj = {
-    //                     //       userProfile : req.session.user[0],
-    //                     //     userInterest : req.session.user[1],
-    //                     //     userRating: req.session.user[2],
-    //                     //     messages: response.data[0],
-    //                     //     topicID: req.body.topicID,
-    //                     //     clientID: req.body.clientID
-    //                     // }
-                       
-    //                     //     res.render("chatRoom", obj);
-    //                     // res.sendStatus(200);
-    //                     res.redirect("/startChat1")
-                     
-                     
-    //                  }else{
-    //                      console.log(500);
-    //                      res.redirect("errorPage");
-    //                  }
+    console.log(response);
+    // POST succeeded... 
+    if (response.status == 200) {
 
 
-    // })
-    // .catch(function (err) {
-    //      res.redirect("errorPage");
-    // });
+
+        console.log(200);
+        // console.log(response.data[0]);
+
+        // var obj = {
+        //       userProfile : req.session.user[0],
+        //     userInterest : req.session.user[1],
+        //     userRating: req.session.user[2],
+        //     messages: response.data[0],
+        //     topicID: req.body.topicID,
+        //     clientID: req.body.clientID
+        // }
+
+        //     res.render("chatRoom", obj);
+        res.redirect("/startChat1");
+
+
+
+    } else {
+        console.log(500);
+        res.redirect("errorPage");
+    }    
+})
+    .catch(function (err) {
+        res.redirect("errorPage");
+    });
 
 
 }

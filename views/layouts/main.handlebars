@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Echoing Wall</title>
+    <title>EchoingWall</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700,800" rel="stylesheet">
@@ -52,28 +52,32 @@ $("#ratingModal").modal();
 $("#receiverScreenName").html(sender);
 
 
-$("#likeButton").on("click", function(){
-console.log("insideLike")
-console.log(senderId)
- var obj = {
 
-   senderUserID: senderId,
-   troll: false
-}
-    console.log(obj)
-    $.post("/like", obj, function(data){
 
-         console.log(data);
-           if (data.error) {
-               console.log("return troll error")
+    $("#likeButton").on("click", function(){
+        console.log("insideLike")
+        console.log(senderId)
+        var obj = {
 
-           } else {
-               console.log("before redirect")
-               window.location = data;
-           }
-       })
+            senderUserID: senderId,
+            troll: false
+        }
+        console.log(obj)
+        $.post("/like", obj, function(data){
 
- })
+            console.log(data);
+            if (data.error) {
+                console.log("return troll error")
+
+            } else {
+                console.log("before redirect")
+                window.location = data;
+            }
+        })
+
+    })
+
+
 
 $("#trollButton").on("click", function(){
 console.log("insideTroll")
@@ -142,13 +146,16 @@ console.log(senderId)
 
                connection.start().done(function(){
 
-               var returnedUser = {ConnectionID : connection.id};
-
-               $.post("/setConnectionID", returnedUser);
+                   ConnectionID = connection.id;
 
 
+                   var returnedUser = {ConnectionID : connection.id};
 
-           });
+                   $.post("/setConnectionID", returnedUser);
+
+
+
+                });
 
 function appendChat(senderID, sender, message){
 
@@ -168,7 +175,8 @@ function appendChat(senderID, sender, message){
 
    container.append(chatContainer);
 
-   $('#jumboChatBackground').scrollTop($('#jumboChatBackground')[0].scrollHeight);
+     $('#jumboChatBackground').scrollTop($('#jumboChatBackground')[0].scrollHeight);
+
 
 
 }
