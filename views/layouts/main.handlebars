@@ -28,54 +28,13 @@
 
 <body>
 
-  <script>
+   <script>
+ // $(document).ready(function(){
 
 var ConnectionID;
 
- // $(function () {
-
-            	var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
-            	var contosoChatHubProxy = connection.createHubProxy('ChatHub');
-
-            	contosoChatHubProxy.on('ReceiveMessage', function (senderID, sender, message) {
-
-		          // buildChatResponse (sender, message);
-              appendChat(senderID, sender, message);
-
-           	 });
-
-                connection.start().done(function(){
-
-                var returnedUser = {ConnectionID : connection.id};
-
-                $.post("/setConnectionID", returnedUser);
-
-
-
-            });
-
- function appendChat(senderID, sender, message){
-
-    var container = $('#chatHistory');
-
-
-		 var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>';
-
-
-     console.log("Running appendChat function...")
-     console.log(chatContainer) ;
-
-
-
-
-		container.append(chatContainer);
-
-    $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
-
-
- }
-
-     //    })
+var senderId;
+var theSender;
 
 function openRateModal(senderID, sender){
 
@@ -83,36 +42,113 @@ function openRateModal(senderID, sender){
 console.log(senderID);
 console.log(sender);
 
-var senderID = senderID;
-var sender = sender;
+senderId = senderID;
+
+theSender = sender;
+
+console.log(senderId + theSender);
 
 $("#ratingModal").modal();
 $("#receiverScreenName").html(sender);
 
 
-$("#likeButton").on("click", function(senderID, sender){
+// $("#likeButton").on("click", function(senderId){
+// console.log("insideLike")
+// console.log(senderId)
+//   var obj = {
+    
+//     senderUserID: senderId,
+//     troll: false
+// }
+//      console.log(obj)     //$.post("/like", obj);
 
+//   })
+
+// $("#trollButton").on("click", function(senderId){
+// console.log("insideTroll")
+// console.log(senderId)
+//   var obj = {
+    
+//     senderUserID: senderId,
+//     troll: true
+// }
+//      console.log(obj)//$.post("/troll", obj);
+
+//   })
+}
+
+$("#likeButton").on("click", function(senderId){
+console.log("insideLike")
+console.log(senderId)
   var obj = {
-
-    senderUserID: senderID,
+    
+    senderUserID: senderId,
     troll: false
 }
-     $.post("/like", obj);
+     console.log(obj)     //$.post("/like", obj);
 
-  })
+});
 
-$("#trollButton").on("click", function(senderID, sender){
 
+
+
+$("#trollButton").on("click", function(senderId){
+console.log("insideTroll");
+console.log(senderId);
   var obj = {
-
-    senderUserID: senderID,
+    
+    senderUserID: senderId,
     troll: true
 }
-     $.post("/troll", obj);
+     console.log(obj)//$.post("/troll", obj);
+})
+ 
+ // $(function () {
 
-  })
-}
+              var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
+              var contosoChatHubProxy = connection.createHubProxy('ChatHub');
 
+              contosoChatHubProxy.on('ReceiveMessage', function (senderID, sender, message) {
+
+              // buildChatResponse (sender, message);
+              appendChat(senderID, sender, message);
+                       
+             });
+
+                connection.start().done(function(){
+
+                var returnedUser = {ConnectionID : connection.id};
+
+                $.post("/setConnectionID", returnedUser);
+                
+
+
+            });
+
+ function appendChat(senderID, sender, message){
+
+
+
+    var container = $('#chatHistory');
+    
+    
+     var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>'; 
+
+     
+     console.log("Running appendChat function...")
+     console.log(chatContainer) ;
+
+
+
+    
+    container.append(chatContainer);
+
+    $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
+
+
+ }
+
+//});
   </script>
 
     <div class="topNav">

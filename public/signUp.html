@@ -44,6 +44,7 @@
                         <div class="form-group">
                             <input name="exampleInputPassword2" type="password" class="form-control" id="exampleInputPassword2" placeholder=" Validate Password">
                         </div>
+                        <div class="form-group" id="isPasswordMatch"></div>
                         <div class="form-group">
                             <input name="exampleInputPhone1" type="tel" class="form-control" id="exampleInputPhone1" placeholder=" Phone Number">
                         </div>
@@ -593,17 +594,20 @@ function removeSpaces(string) {
 <script>
 var returnedUser = []
 $("#exampleInputPassword2").on("keyup", function() {
-    console.log("password keyup");
-    // original password input
+
     var password1 = $("#exampleInputPassword1").val().trim();
-    // retype passwword input
     var password2 = $("#exampleInputPassword2").val().trim();
-    // if the two strings match
-    if (password1 != password2) {
-        //show the user that the passwords matched
-        document.getElementById("passwordMismatch").showModal();
-    }
-    // if the two strings are different
+
+    if(password1 == password2){
+
+        $("#isPasswordMatch").html("Password match!");
+
+
+    }else{
+        $("#isPasswordMatch").html("Your Passwords do not match!")
+     } 
+
+
 });
 $("#signUpButton").on("click", function() {
     validateForm ();

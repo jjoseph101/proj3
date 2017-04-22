@@ -1,0 +1,18 @@
+$("#reTypePassword").on("keyup", function(){
+
+	var password1 = $("#password").val().trim();
+	var password2 = $("#reTypePassword").val().trim();
+
+	if(password1 == password2){
+
+		$("#isUsernameAvailable").html("Password match!");
+		isPasswordMatched = true;
+
+	}else{
+		$("#isUsernameAvailable").html("Your Password do not match!")
+		isPasswordMatched = false
+	}
+
+
+
+});
