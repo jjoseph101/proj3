@@ -6245,6 +6245,11 @@ label {
       background-color: #ffc90d;
   }
 
+  #isPasswordMatch {
+    text-align:center;
+    color:#ffc90d;
+  }
+
 /* Nav Search Bar Starts */
 
   .searchBackground {
