@@ -61,7 +61,9 @@ rp(option2)
                        console.log(200 + "for interest");
                           
                           var obj = {
-
+                             userProfile: req.session.user[0],
+                            userInterest: req.session.user[1],
+                            userRating: req.session.user[2],
                             allCategory : allTheCategory,
                             userInterest: response.data[0]
 
