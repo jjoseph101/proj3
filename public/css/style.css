@@ -5913,9 +5913,9 @@ button:focus,button:active {
   padding:5px;
 }
 
-.overflowTopic{
+.overflowTopic {
   overflow: scroll;
-  height: 600px;
+  height:600px;
 }
 
 #mainJumbos {
@@ -6485,6 +6485,35 @@ label {
   font-weight:300;
 }
 
+#pageNotFound {
+  height:300px;
+}
+
+#findTopicTwo {
+  position:relative;
+  top:100px;
+}
+
+
+.likesAndTrolls {
+  margin-top:-18px;
+}
+
+.like {
+  margin-left:5px;
+}
+
+.likeCount {
+  margin-left:5px;
+}
+
+.troll {
+  margin-left:5px;
+}
+
+.trollCount {
+  margin-left:5px;
+}
 
 /* Sign Up Page Ends */
 

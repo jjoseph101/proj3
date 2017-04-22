@@ -25,13 +25,13 @@
 
 
 </head>
-	
+
 <body>
 
   <script>
 
 var ConnectionID;
- 
+
  // $(function () {
 
             	var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
@@ -41,7 +41,7 @@ var ConnectionID;
 
 		          // buildChatResponse (sender, message);
               appendChat(senderID, sender, message);
-                       
+
            	 });
 
                 connection.start().done(function(){
@@ -49,7 +49,7 @@ var ConnectionID;
                 var returnedUser = {ConnectionID : connection.id};
 
                 $.post("/setConnectionID", returnedUser);
-                
+
 
 
             });
@@ -57,17 +57,17 @@ var ConnectionID;
  function appendChat(senderID, sender, message){
 
     var container = $('#chatHistory');
-    
-		
-		 var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>'; 
 
-		 
+
+		 var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>';
+
+
      console.log("Running appendChat function...")
      console.log(chatContainer) ;
 
 
 
-		
+
 		container.append(chatContainer);
 
     $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
@@ -93,7 +93,7 @@ $("#receiverScreenName").html(sender);
 $("#likeButton").on("click", function(senderID, sender){
 
   var obj = {
-    
+
     senderUserID: senderID,
     troll: false
 }
@@ -104,7 +104,7 @@ $("#likeButton").on("click", function(senderID, sender){
 $("#trollButton").on("click", function(senderID, sender){
 
   var obj = {
-    
+
     senderUserID: senderID,
     troll: true
 }
@@ -130,8 +130,14 @@ $("#trollButton").on("click", function(senderID, sender){
       <!-- SVG hover for upload image -->
       <div class="uploadHover">
 
-     
-    
+
+
+
+
+
+
+
+
       <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       	 viewBox="0 0 179.5 229" style="enable-background:new 0 0 179.5 229;" xml:space="preserve">
@@ -254,15 +260,35 @@ $("#trollButton").on("click", function(senderID, sender){
       </div>
       <!-- SVG Ends for upload img hover -->
 
+<!-- OLD CODE
       <div class="welcomePerson">
         <p>Welcome Back!</p>
          {{#each userProfile}}
         <p class="name">{{this.screenName}}</p>
         {{/each}}
-      <div class="updateBackgroundColor">
-        
+                {{#each userRating}}
+                <br>
+                <p class="name"><span>Like: {{this.LikeCount}}</span><span id="troll" >Troll: {{this.TrollCount}}</span></p>
+                {{/each}}
+      <div class="updateBackgroundColor"> -->
+
+
+
+
+
+      <div class="welcomePerson">
+          <p>Welcome Back!</p>
+           {{#each userProfile}}
+          <p class="name">{{this.screenName}}</p>
+          {{/each}}
+                  {{#each userRating}}
+                  <br>
+                  <div class="likesAndTrolls"><p class="name"><span class="like">Likes:</span><span class="likeCount">{{this.LikeCount}}</span><span class="troll">Troll:</span><span class="trollCount">{{this.TrollCount}}</span></p></div>
+                  {{/each}}
+        <div class="updateBackgroundColor">
+
         <a class="btn btn-default" id="updateEchoesButton" href="/updateNav">Update Echoes</a>
-   
+
     </div>
     </div>
     </center>
@@ -273,17 +299,17 @@ $("#trollButton").on("click", function(senderID, sender){
          {{#each userInterest}}
         <li><form class="formMargin" action="/topicbycategory/{{this.categoryID}}" method="POST" ><button class="sideButtons">{{this.categoryName}}</button></form></li>
         {{/each}}
-        
+
        </ul>
   </div>
 
 
   <!-- Dashboard Code Begins -->
   <div class="dashboard">
-      <div class="searchBackground">
+      <!-- <div class="searchBackground">
         <input class="form-control" type="search" value="Search" id="example-search-input">
         <button type="submit" class="btn btn-default pull-right" id="searchButton">Search</button>
-      </div>
+      </div> -->
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -329,12 +355,12 @@ $("#trollButton").on("click", function(senderID, sender){
             <h2 class="modal-title text-center"><strong id="receiverScreenName"></strong></h2>
           </div>
           <div class="modal-body">
-            
+
                 <button type="button" id="likeButton" class="btn btn-default">Like</button>
 								 <button type="button" id="trollButton" class="btn btn-default">Troll</button>
 
-             
-            
+
+
           </div>
           <div class="modal-footer">
             <button type="button" id="close" class="close" data-dismiss="modal">Close</button>
