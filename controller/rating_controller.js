@@ -20,20 +20,20 @@ var options = {
     method: 'POST',
     uri: 'http://echoingwallapiservice.azurewebsites.net/save/rating',
     body: trollPost,
-    json: true // Automatically stringifies the body to JSON 
+    json: true // Automatically stringifies the body to JSON
 };
- 
+
         rp(options)
             .then(function (response) {
-              
-                // POST succeeded... 
+
+                // POST succeeded...
                       if(response.status == 200){
 
                         console.log(200+" inside Like");
 
-                        
-                       res.redirect("/startChat1") 
-                    
+
+                       res.send("/startChat1")
+
                      }else{
                          console.log(500);
                           res.redirect("/errorPage");
@@ -64,19 +64,19 @@ var options = {
     method: 'POST',
     uri: 'http://echoingwallapiservice.azurewebsites.net/save/rating',
     body: likePost,
-    json: true // Automatically stringifies the body to JSON 
+    json: true // Automatically stringifies the body to JSON
 };
- 
+
         rp(options)
             .then(function (response) {
-              
-                // POST succeeded... 
+
+                // POST succeeded...
                       if(response.status == 200){
 
                         console.log(200+" inside Like");
-                        
-                       res.redirect("/startChat1") 
-                    
+
+                       res.send("/startChat1")
+
                      }else{
                          console.log(500);
                           res.redirect("/errorPage");

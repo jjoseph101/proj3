@@ -3007,33 +3007,41 @@ a.btn.disabled, fieldset[disabled] a.btn {
     background-color: #fff; }
 
 .btn-success {
-  color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c; }
+  color: white;
+  background-color:#282c37;
+  border-color: #282c37;
+  padding-right:50px;
+  padding-left:50px;
+  height:50px;
+  margin-top:30px;
+  font-weight:500;
+  font-size:18px;
+
+}
   .btn-success:focus, .btn-success.focus {
-    color: #fff;
-    background-color: #449d44;
-    border-color: #255625; }
+    color:;
+    background-color:;
+    border-color:; }
   .btn-success:hover {
-    color: #fff;
-    background-color: #449d44;
-    border-color: #398439; }
+    color: #282c37;
+    background-color: #ffc90d;
+    border-color: #ffc90d; }
   .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
-    color: #fff;
-    background-color: #449d44;
-    border-color: #398439; }
+    color:;
+    background-color:;
+    border-color:; }
     .btn-success:active:hover, .btn-success:active:focus, .btn-success:active.focus, .btn-success.active:hover, .btn-success.active:focus, .btn-success.active.focus, .open > .btn-success.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle.focus {
-      color: #fff;
-      background-color: #398439;
-      border-color: #255625; }
+      color:;
+      background-color:;
+      border-color:; }
   .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     background-image: none; }
   .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus {
-    background-color: #5cb85c;
-    border-color: #4cae4c; }
+    background-color:;
+    border-color:; }
   .btn-success .badge {
-    color: #5cb85c;
-    background-color: #fff; }
+    color:;
+    background-color:; }
 
 .btn-info {
   color: #fff;
@@ -6047,6 +6055,7 @@ label {
   top:-117px;
   margin-left:95px;
   padding:0px;
+  width:792px;
 }
 
 #sendChat {
@@ -6247,7 +6256,18 @@ label {
 
   #isPasswordMatch {
     text-align:center;
-    color:#ffc90d;
+    color:#ffc90;
+  }
+
+  .welcomeEchoWall {
+    text-align:center;
+    font-family: 'Lobster', cursive;
+  }
+
+  .noTopic {
+    text-align:center;
+    font-family: 'Lobster', cursive;
+    color:#282c37;
   }
 
 /* Nav Search Bar Starts */
@@ -6452,6 +6472,22 @@ label {
       margin-top:10px;
     }
 
+    #receiverScreenName {
+      color:white ;
+    }
+
+    .likeTrollGrouped {}
+
+      #likeButton {
+        padding-right:30px;
+        padding-left:30px;
+      }
+
+      #trollButton {
+        padding-right:30px;
+        padding-left:30px;
+      }
+
 
 
 
@@ -6491,12 +6527,20 @@ label {
 }
 
 #pageNotFound {
-  height:300px;
+  height:600px;
 }
 
 #findTopicTwo {
   position:relative;
-  top:100px;
+  top:10px;
+}
+
+#updateEchoeJumbo {
+  height:600px;
+}
+
+.moveButtonUp {
+  margin-top:10px;
 }
 
 #signUpButton {

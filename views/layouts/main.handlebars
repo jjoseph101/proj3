@@ -20,6 +20,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.min.js"></script>
 	<script src="/javascript/jquery.signalR-2.2.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
 
 
@@ -27,9 +28,8 @@
 </head>
 
 <body>
-
-   <script>
- // $(document).ready(function(){
+  <script>
+// $(document).ready(function(){
 
 var ConnectionID;
 
@@ -52,104 +52,129 @@ $("#ratingModal").modal();
 $("#receiverScreenName").html(sender);
 
 
+$("#likeButton").on("click", function(){
+console.log("insideLike")
+console.log(senderId)
+ var obj = {
+
+   senderUserID: senderId,
+   troll: false
+}
+    console.log(obj)
+    $.post("/like", obj, function(data){
+
+         console.log(data);
+           if (data.error) {
+               console.log("return troll error")
+
+           } else {
+               console.log("before redirect")
+               window.location = data;
+           }
+       })
+
+ })
+
+$("#trollButton").on("click", function(){
+console.log("insideTroll")
+console.log(senderId)
+ var obj = {
+
+   senderUserID: senderId,
+   troll: true
+}
+    console.log(obj)
+    $.post("/troll", obj, function(data){
+
+         console.log(data);
+           if (data.error) {
+               console.log("return troll error")
+
+           } else {
+               console.log("before redirect")
+               window.location = data;
+           }
+       })
+
+    });
+
+}
+
 // $("#likeButton").on("click", function(senderId){
 // console.log("insideLike")
 // console.log(senderId)
 //   var obj = {
-    
+
 //     senderUserID: senderId,
 //     troll: false
 // }
-//      console.log(obj)     //$.post("/like", obj);
+//      console.log(obj)
+//      //$.post("/like", obj);
 
-//   })
+// });
+
+
+
 
 // $("#trollButton").on("click", function(senderId){
-// console.log("insideTroll")
-// console.log(senderId)
+// console.log("insideTroll");
+// console.log(senderId);
 //   var obj = {
-    
+
 //     senderUserID: senderId,
 //     troll: true
 // }
-//      console.log(obj)//$.post("/troll", obj);
+//      console.log(obj)
+//      //$.post("/troll", obj);
+// })
 
-//   })
-}
+// $(function () {
 
-$("#likeButton").on("click", function(senderId){
-console.log("insideLike")
-console.log(senderId)
-  var obj = {
-    
-    senderUserID: senderId,
-    troll: false
-}
-     console.log(obj)     //$.post("/like", obj);
+             var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
+             var contosoChatHubProxy = connection.createHubProxy('ChatHub');
 
-});
+             contosoChatHubProxy.on('ReceiveMessage', function (senderID, sender, message) {
 
-
-
-
-$("#trollButton").on("click", function(senderId){
-console.log("insideTroll");
-console.log(senderId);
-  var obj = {
-    
-    senderUserID: senderId,
-    troll: true
-}
-     console.log(obj)//$.post("/troll", obj);
-})
- 
- // $(function () {
-
-              var connection = $.hubConnection('http://echoingwallapiservice.azurewebsites.net:80/');
-              var contosoChatHubProxy = connection.createHubProxy('ChatHub');
-
-              contosoChatHubProxy.on('ReceiveMessage', function (senderID, sender, message) {
-
-              // buildChatResponse (sender, message);
-              appendChat(senderID, sender, message);
-                       
-             });
-
-                connection.start().done(function(){
-
-                var returnedUser = {ConnectionID : connection.id};
-
-                $.post("/setConnectionID", returnedUser);
-                
-
+             // buildChatResponse (sender, message);
+             appendChat(senderID, sender, message);
 
             });
 
- function appendChat(senderID, sender, message){
+               connection.start().done(function(){
+
+               var returnedUser = {ConnectionID : connection.id};
+
+               $.post("/setConnectionID", returnedUser);
 
 
 
-    var container = $('#chatHistory');
-    
-    
-     var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>'; 
+           });
 
-     
-     console.log("Running appendChat function...")
-     console.log(chatContainer) ;
+function appendChat(senderID, sender, message){
 
 
 
-    
-    container.append(chatContainer);
-
-    $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
+   var container = $('#chatHistory');
 
 
- }
+    var chatContainer = '<div id="chatJumboColor"><button class="btn btn-primary" onclick="openRateModal(' + senderID + ', '+'\'' + sender + '\''+ ')" id="screenName">'+ sender + '</button><p class="message">'+ message + '</p></div>';
+
+
+    console.log("Running appendChat function...")
+    console.log(chatContainer) ;
+
+
+
+
+   container.append(chatContainer);
+
+   $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
+
+
+}
 
 //});
-  </script>
+ </script>
 
     <div class="topNav">
       <ul>
@@ -391,9 +416,10 @@ console.log(senderId);
             <h2 class="modal-title text-center"><strong id="receiverScreenName"></strong></h2>
           </div>
           <div class="modal-body">
-
+                <center>
                 <button type="button" id="likeButton" class="btn btn-default">Like</button>
 								 <button type="button" id="trollButton" class="btn btn-default">Troll</button>
+               </center>
 
 
 
