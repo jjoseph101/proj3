@@ -6256,7 +6256,15 @@ label {
 
   #isPasswordMatch {
     text-align:center;
-    color:#ffc90;
+    color:#ffc90d;
+  }
+
+  #createJumbo {
+    height:600px;
+  }
+
+  #searchJumbo {
+    height:600px;
   }
 
   .welcomeEchoWall {
