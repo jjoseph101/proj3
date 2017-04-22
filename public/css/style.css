@@ -6494,6 +6494,14 @@ label {
   top:100px;
 }
 
+#signUpButton {
+  margin-bottom:20px;
+}
+
+#loginResult {
+  color:#ffc90d;
+  margin-top:10px;
+}
 
 .likesAndTrolls {
   margin-top:-18px;
