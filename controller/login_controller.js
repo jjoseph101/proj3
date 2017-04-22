@@ -104,7 +104,7 @@ var signupLogin = {
             res.render("echoes", obj);
 
         } else {
-            res.render("noTopic", obj);
+            res.render("welcome", obj);
         }
     }
 
